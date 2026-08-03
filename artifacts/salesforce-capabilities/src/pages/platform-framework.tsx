@@ -29,7 +29,7 @@ const layers = [
     color: 'rgba(0,100,150,0.15)',
     borderColor: 'rgba(0,150,200,0.4)',
     textColor: 'hsl(200 80% 60%)',
-    products: ['Data 360 (Data Cloud One)', 'MuleSoft (Integration & Agent Fabric)', 'Headless 360 / MCP', 'Einstein Trust Layer', 'Shield (Security)'],
+    products: ['Data 360 (Data Cloud One)', 'MuleSoft (Integration, API Mgmt, Connectors)', 'Headless 360 / MCP', 'Einstein Trust Layer', 'Shield (Security)'],
     description: 'The foundational infrastructure that unifies data, governs AI interactions, connects enterprise systems, and exposes Salesforce as an API surface for any channel. Without this layer, Layers 1 and 2 operate in silos.',
   },
 ];
@@ -44,8 +44,8 @@ const shadowItQuestions = [
     hint: 'Data Cloud One supports zero-copy federation from SAP, Snowflake, and other enterprise sources — no pipeline required.',
   },
   {
-    q: 'Can MuleSoft Agent Fabric connect it as an agent action rather than a point-to-point API?',
-    hint: 'Agent Fabric converts existing APIs into agent-invokable actions, avoiding custom integration sprawl.',
+    q: 'Can MuleSoft connect it as an agent action rather than a point-to-point API?',
+    hint: 'MuleSoft (core integration, API management, and connectors) is covered in the Siemens SELA. Note: MuleSoft Agentforce Fabric — which converts APIs into agent-invokable actions — went GA after July 31, 2025 and requires a separate addendum.',
   },
   {
     q: 'Does the Einstein Trust Layer provide governance that the custom tool lacks?',

@@ -23,8 +23,8 @@ const tier1 = [
     session: 'Session 5058 + Agentic Architecture',
   },
   {
-    cap: 'MuleSoft Agent Fabric',
-    why: 'The integration nervous system for agent actions — connects SAP, external APIs, and enterprise systems to Agentforce without point-to-point APIs.',
+    cap: 'MuleSoft Agentforce Fabric',
+    why: 'Converts existing MuleSoft APIs into agent-invokable actions — the integration nervous system for multi-agent workflows connecting SAP, external APIs, and enterprise systems. Note: MuleSoft core is in the Siemens SELA; Agentforce Fabric specifically went GA after July 31, 2025 and requires a separate addendum.',
     session: 'Session 4142: Agentic Architecture',
   },
 ];

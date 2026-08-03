@@ -235,6 +235,7 @@ export default function ExecutiveSummary() {
               <tbody className="divide-y divide-border">
                 {[
                   ["Agentforce (External Users)", "Agentforce for Experience Cloud (A4X)", "Per-user add-on, not in SELA"],
+                   ["Integration", "MuleSoft Agentforce Fabric", "New capability — went GA after July 31, 2025, requires separate addendum"],
                   ["Analytics", "Tableau Pulse / Proactive Insights", "Separate SKU beyond Tableau Plus"],
                   ["Analytics", "Agentforce for Tableau (agentic BI queries)", "Requires additional add-on"],
                   ["Marketing", "Marketing Cloud Engagement (Email/Journey)", "Not confirmed in current contract"],
