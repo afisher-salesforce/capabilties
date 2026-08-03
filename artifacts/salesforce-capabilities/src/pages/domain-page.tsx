@@ -61,7 +61,7 @@ export default function DomainPage() {
             <div 
               key={cap.code}
               id={`cap-${cap.code}`}
-              className={`bg-card rounded-xl p-6 flex flex-col transition-all duration-500 ${
+              className={`bg-card rounded-xl p-6 flex flex-col transition-all duration-500 scroll-mt-8 ${
                 cap.inSela 
                   ? 'border-2 border-primary/60 shadow-[0_0_15px_rgba(0,180,180,0.1)]' 
                   : 'border border-border'
