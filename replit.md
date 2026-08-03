@@ -1,45 +1,59 @@
-# [Project name]
+# Salesforce Capabilities — Siemens DISW
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An executive-level discussion site for Salesforce account teams to walk Siemens Digital Industries Software (DISW) through their Salesforce platform capabilities, with particular focus on what is licensed under the Siemens Enterprise License Agreement (SELA).
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/salesforce-capabilities run dev` — run the site (port assigned by workflow)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Frontend: React 19 + Vite, Tailwind CSS v4, Wouter routing
+- All content is static — no backend, no database, no API calls
+
+## Site Structure
+
+| Route | Content |
+|---|---|
+| `/` | Executive Summary — hero image, SELA at a glance, inclusions/exclusions, key nuances |
+| `/research` | External Research Brief — DISW company overview, products, executives, financials, transformation signals |
+| `/capabilities` | Salesforce Capabilities Hub — 14 domain cards with SELA coverage counts |
+| `/capabilities/:domain` | Individual domain pages — all capabilities with IN SELA badges |
+
+14 domain pages: analytics-reporting, billing, collaboration, cpq, data-ai, field-service, industry-solutions, integration, marketing, order, partner, platform-governance, sales, service
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/salesforce-capabilities/src/App.tsx` — layout, routing, sidebar navigation
+- `artifacts/salesforce-capabilities/src/data/capabilities.ts` — all 97 capabilities across 14 domains, SELA flags
+- `artifacts/salesforce-capabilities/src/index.css` — design tokens (Siemens deep blue/teal dark theme)
+- `artifacts/salesforce-capabilities/public/disw-hero.jpeg` — hero image (Executive Summary page)
+- `attached_assets/` — source reference documents (PDFs, MD, JPEG)
 
-## Architecture decisions
+## Design Decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Left sidebar navigation instead of tabs — 17 sections is too many for a tab bar at executive level
+- "IN SELA" teal badge system on all capability cards — instantly scannable in a live meeting
+- Hero image used only on Executive Summary with gradient mask overlay
+- Dark theme: `#07101a` background, `#00b4b4` teal accent, `#40e0d0` mint for SELA highlights
+- All content is static (no backend) — the site is a reference document, not an application
 
-## Product
+## SELA Coverage
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+27 of 97 capabilities are licensed in the Siemens SELA (March 2025 – September 2028):
+- Data & AI: 9/9 (all included — Agentforce, Data Cloud, Einstein Trust Layer)
+- Field Service: 5/8
+- Service: 5/13
+- Sales: 5/15
+- Analytics & Reporting: 2/4
+- Industry Solutions: 1/3
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Executive presentation style — dense but organized, no emojis
+- Dark theme following Siemens brand palette (deep blue + teal)
+- Left sidebar navigation preferred over tabs for sites with many sections
+- Hero image with gradient mask approach (not full-bleed)
