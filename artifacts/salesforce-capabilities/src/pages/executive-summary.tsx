@@ -240,7 +240,6 @@ export default function ExecutiveSummary() {
                   ["Marketing", "Marketing Cloud Engagement (Email/Journey)", "Not confirmed in current contract"],
                   ["Marketing", "All Marketing AI features", "Requires MC Engagement"],
                   ["Marketing", "Account Engagement / Pardot", "Not confirmed"],
-                  ["Integration", "MuleSoft (Agent Actions, API Management)", "Separate MuleSoft license required"],
                   ["Platform", "Professional Services / Signature Success", "Explicitly excluded from SELA swap mechanics"],
                   ["Platform", "Salesforce Shield / Security Add-ons", "Derivative/percentage-based — excluded by contract"],
                   ["Platform", "Products that went GA after July 31, 2025", "Require addendum"]

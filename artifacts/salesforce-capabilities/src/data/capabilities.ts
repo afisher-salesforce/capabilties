@@ -20,43 +20,43 @@ export const domainsData: Domain[] = [
     description: 'Embedded analytics and AI-driven insights surfaced directly within CRM workflows — from in-context dashboards to proactive metric monitoring and AI-powered revenue intelligence.',
     capabilities: [
       { code: 'ABI', name: 'Embedded BI & Dashboards', inSela: true, source: 'Expert Addition', description: 'Embedded analytics within CRM workflows and portals (CRM Analytics / Tableau Embedded) for in-context decision support without leaving the app — surfacing insights where work happens.' },
-      { code: 'AEX', name: 'Einstein Conversation Insights (ECI)', inSela: false, source: 'Expert Addition', description: 'AI analysis of sales and service call transcripts to surface coaching signals, competitive mentions, deal risk flags, and rep performance patterns — actionable intelligence from every customer conversation.' },
-      { code: 'APC', name: 'Tableau Pulse / Proactive Insights', inSela: false, source: 'Expert Addition', description: 'AI-driven, push-based metric monitoring that surfaces anomalies and signals to business users without requiring them to build or run reports — Salesforce\'s answer to proactive analytics.' },
+      { code: 'AEX', name: 'Einstein Conversation Insights (ECI)', inSela: true, source: 'Expert Addition', description: 'AI analysis of sales and service call transcripts to surface coaching signals, competitive mentions, deal risk flags, and rep performance patterns — actionable intelligence from every customer conversation.' },
+      { code: 'APC', name: 'Tableau Pulse / Proactive Insights', inSela: false, source: 'Expert Addition', description: 'AI-driven, push-based metric monitoring that surfaces anomalies and signals to business users without requiring them to build or run reports — separate SKU beyond Tableau Plus, not included in the Siemens SELA.' },
       { code: 'ARI', name: 'Revenue Intelligence', inSela: true, source: 'Expert Addition', description: 'AI-driven pipeline health scoring, deal risk signals, and forecast accuracy analysis layered on top of CRM data — purpose-built for sales leadership decision-making.' }
     ]
   },
   {
     id: 'billing',
     name: 'Billing',
-    description: 'End-to-end billing lifecycle management — from rating and invoicing through revenue recognition and collections, supporting complex B2B billing scenarios.',
+    description: 'End-to-end billing lifecycle management — from rating and invoicing through revenue recognition and collections, supporting complex B2B billing scenarios. Included in the Siemens SELA as part of the GA product coverage.',
     capabilities: [
-      { code: 'BCC', name: 'Credit & Collections', inSela: false, source: 'V1.3', description: 'Receipt of payments and management of disputes and overdue accounts including dunning, notification, charge off, refunds.' },
-      { code: 'BIM', name: 'Invoice Management', inSela: false, source: 'V1.3', description: 'Generation and distribution of amount due, due date and bill detail to customer over channel of choice.' },
-      { code: 'BLL', name: 'Billing Management', inSela: false, source: 'V1.3', description: 'Rating or calculating the amount to charge customers for products and services provided, across all required billing scenarios.' },
-      { code: 'BRR', name: 'Revenue Recognition', inSela: false, source: 'V1.3', description: 'Manage and apply revenue recognition rules to create revenue transactions to be entered into a general ledger.' }
+      { code: 'BCC', name: 'Credit & Collections', inSela: true, source: 'V1.3', description: 'Receipt of payments and management of disputes and overdue accounts including dunning, notification, charge off, refunds.' },
+      { code: 'BIM', name: 'Invoice Management', inSela: true, source: 'V1.3', description: 'Generation and distribution of amount due, due date and bill detail to customer over channel of choice.' },
+      { code: 'BLL', name: 'Billing Management', inSela: true, source: 'V1.3', description: 'Rating or calculating the amount to charge customers for products and services provided, across all required billing scenarios.' },
+      { code: 'BRR', name: 'Revenue Recognition', inSela: true, source: 'V1.3', description: 'Manage and apply revenue recognition rules to create revenue transactions to be entered into a general ledger.' }
     ]
   },
   {
     id: 'collaboration',
     name: 'Collaboration',
-    description: 'Slack-powered team collaboration — from AI agents embedded in channels to secure cross-company workspaces with partners and customers.',
+    description: 'Slack-powered team collaboration — AI agents embedded in channels via Agentforce are covered in the Siemens SELA. Note: Slack core licensing (Enterprise Grid, Connect) requires a separate Slack license and is not covered under the SELA.',
     capabilities: [
-      { code: 'CAF', name: 'Agentforce in Slack', inSela: false, source: 'Expert Addition', description: 'Deployment of AI agents natively within Slack channels and DMs — enabling employees to invoke agents, receive AI summaries, and execute CRM actions entirely within their collaboration flow.' },
-      { code: 'CSC', name: 'Slack Connect / External Collaboration', inSela: false, source: 'Expert Addition', description: 'Secure cross-company channel collaboration with customers, partners, and vendors — enables digital account rooms, shared deal workspaces, and partner onboarding experiences beyond the firewall.' },
-      { code: 'CTC', name: 'Asynchronous Team Collaboration', inSela: false, source: 'Expert Addition', description: 'Persistent channel-based messaging, huddles, and workflow execution connecting people, tools, and partners securely.' }
+      { code: 'CAF', name: 'Agentforce in Slack', inSela: true, source: 'Expert Addition', description: 'Deployment of AI agents natively within Slack channels and DMs — enabling employees to invoke agents, receive AI summaries, and execute CRM actions entirely within their collaboration flow. The Agentforce capability layer is covered in the Siemens SELA.' },
+      { code: 'CSC', name: 'Slack Connect / External Collaboration', inSela: false, source: 'Expert Addition', description: 'Secure cross-company channel collaboration with customers, partners, and vendors — enables digital account rooms, shared deal workspaces, and partner onboarding experiences beyond the firewall. Requires a separate Slack license.' },
+      { code: 'CTC', name: 'Asynchronous Team Collaboration', inSela: false, source: 'Expert Addition', description: 'Persistent channel-based messaging, huddles, and workflow execution connecting people, tools, and partners securely. Requires a separate Slack license.' }
     ]
   },
   {
     id: 'cpq',
     name: 'CPQ',
-    description: 'Configure, Price, Quote — guided configuration, flexible pricing, proposal management, and subscription lifecycle management for complex B2B product portfolios.',
+    description: 'Configure, Price, Quote — guided configuration, flexible pricing, proposal management, and subscription lifecycle management for complex B2B product portfolios. Included in the Siemens SELA as part of the GA product coverage.',
     capabilities: [
-      { code: 'CCM', name: 'Product Catalog Management', inSela: false, source: 'V1.3', description: 'Maintain a product and service catalog, supporting solution bundles and multiple catalog versions with ability to manage products and associated data.' },
-      { code: 'CPL', name: 'Proposal Management', inSela: false, source: 'V1.3', description: 'Manage the proposal creation and delivery process using standard Templates & Terms with electronic signature capabilities.' },
-      { code: 'CPM', name: 'Pricing Management', inSela: false, source: 'V1.3', description: 'Flexibly manage pricing of product & service offerings via pricing rules supporting all pricing strategies.' },
-      { code: 'CQM', name: 'Quote Management', inSela: false, source: 'V1.3', description: 'Manage creation and delivery of product & service quotes; supports product bundles, multiple quote versions, and customer review.' },
-      { code: 'CSC', name: 'Guided Solution Configuration', inSela: false, source: 'V1.3', description: 'Rules and policies to guide sales reps, partners, and customers through selecting the correct product & service for their requirements.' },
-      { code: 'CSM', name: 'Subscription Management', inSela: false, source: 'V1.3', description: 'Manage one-time, usage, and recurring services of varying term lengths with all transaction types in the lifecycle of a contract.' }
+      { code: 'CCM', name: 'Product Catalog Management', inSela: true, source: 'V1.3', description: 'Maintain a product and service catalog, supporting solution bundles and multiple catalog versions with ability to manage products and associated data.' },
+      { code: 'CPL', name: 'Proposal Management', inSela: true, source: 'V1.3', description: 'Manage the proposal creation and delivery process using standard Templates & Terms with electronic signature capabilities.' },
+      { code: 'CPM', name: 'Pricing Management', inSela: true, source: 'V1.3', description: 'Flexibly manage pricing of product & service offerings via pricing rules supporting all pricing strategies.' },
+      { code: 'CQM', name: 'Quote Management', inSela: true, source: 'V1.3', description: 'Manage creation and delivery of product & service quotes; supports product bundles, multiple quote versions, and customer review.' },
+      { code: 'CGS', name: 'Guided Solution Configuration', inSela: true, source: 'V1.3', description: 'Rules and policies to guide sales reps, partners, and customers through selecting the correct product & service for their requirements.' },
+      { code: 'CSM', name: 'Subscription Management', inSela: true, source: 'V1.3', description: 'Manage one-time, usage, and recurring services of varying term lengths with all transaction types in the lifecycle of a contract.' }
     ]
   },
   {
@@ -81,9 +81,9 @@ export const domainsData: Domain[] = [
     description: 'End-to-end field service management — from work order creation and intelligent scheduling through install base maintenance, parts inventory, and field worker mobility.',
     capabilities: [
       { code: 'FAP', name: 'Field Service Analysis & Planning', inSela: true, source: 'V1.3', description: 'Operational reporting and optimization analysis of field service resources, inventory and assets, and customer work order completion and satisfaction.' },
-      { code: 'FDR', name: 'RMA / Depot Repair', inSela: false, source: 'V1.3', description: 'Management of diagnosis, remediation workflow, repair depot assignment, shipping, swap-out / loaner replacement, repair, and post-repair financial and inventory reconciliation.' },
-      { code: 'FIR', name: 'Field Inventory & Replenishment Management', inSela: false, source: 'V1.3', description: 'Manage inventory levels across locations, track availability of parts, request for parts, and record parts used to complete work orders.' },
-      { code: 'FMO', name: 'Field Worker Mobility', inSela: false, source: 'V1.3', description: 'Ability for field employee to complete key work functions while remote in the field.' },
+      { code: 'FDR', name: 'RMA / Depot Repair', inSela: true, source: 'V1.3', description: 'Management of diagnosis, remediation workflow, repair depot assignment, shipping, swap-out / loaner replacement, repair, and post-repair financial and inventory reconciliation.' },
+      { code: 'FIR', name: 'Field Inventory & Replenishment Management', inSela: true, source: 'V1.3', description: 'Manage inventory levels across locations, track availability of parts, request for parts, and record parts used to complete work orders.' },
+      { code: 'FMO', name: 'Field Worker Mobility', inSela: true, source: 'V1.3', description: 'Ability for field employee to complete key work functions while remote in the field.' },
       { code: 'FPM', name: 'Install Base & Preventative Maintenance', inSela: true, source: 'V1.3', description: 'Manage installed assets for each customer location. Establish proactive scheduled plan to service install base.' },
       { code: 'FRM', name: 'Resource Management', inSela: true, source: 'V1.3', description: 'Development and management of field work individuals, including skills, capacity and availability of resources.' },
       { code: 'FSM', name: 'Operational Schedule Management', inSela: true, source: 'V1.3', description: 'Allocation of resources to work in the most efficient way possible by accounting for field employee skill level, travel time, location, and other factors.' },
@@ -93,29 +93,29 @@ export const domainsData: Domain[] = [
   {
     id: 'industry-solutions',
     name: 'Industry Solutions',
-    description: 'Industry-specific platform capabilities including rules engines, digital self-service portals, and manufacturing asset lifecycle management — particularly relevant for DISW\'s complex software subscription and install base management needs.',
+    description: 'Industry-specific platform capabilities including rules engines, digital self-service portals, and manufacturing asset lifecycle management — particularly relevant for DISW\'s complex software subscription and install base management needs. Included in the Siemens SELA as part of the GA product coverage.',
     capabilities: [
-      { code: 'ICR', name: 'Industry Rules Engine', inSela: false, source: 'Expert Addition', description: 'Management of complex, industry-specific business rules, digital processes, and document generation (e.g., OmniStudio) natively mapped to Salesforce objects.' },
-      { code: 'IDI', name: 'Digital Engagement & Self-Service (Industry)', inSela: false, source: 'Expert Addition', description: 'Industry-specific customer portal and self-service for technical support, licensing entitlement, and renewal management — especially relevant to DISW\'s support and renewal motion for software subscription customers.' },
+      { code: 'ICR', name: 'Industry Rules Engine', inSela: true, source: 'Expert Addition', description: 'Management of complex, industry-specific business rules, digital processes, and document generation (e.g., OmniStudio) natively mapped to Salesforce objects.' },
+      { code: 'IDI', name: 'Digital Engagement & Self-Service (Industry)', inSela: true, source: 'Expert Addition', description: 'Industry-specific customer portal and self-service for technical support, licensing entitlement, and renewal management — especially relevant to DISW\'s support and renewal motion for software subscription customers.' },
       { code: 'IMP', name: 'Manufacturing & Asset Lifecycle Management', inSela: true, source: 'Expert Addition', description: 'Management of product lifecycle, installed base, and asset genealogy tied to customer accounts — core to B2B industrial software companies managing complex customer install bases like DISW\'s Xcelerator portfolio.' }
     ]
   },
   {
     id: 'integration',
     name: 'Integration',
-    description: 'Enterprise integration, API management, and pre-built connectors — enabling composable architecture and bidirectional data sync across SAP, ServiceNow, Microsoft, and the broader enterprise ecosystem. Note: MuleSoft requires a separate license (not in SELA).',
+    description: 'Enterprise integration, API management, and pre-built connectors — enabling composable architecture and bidirectional data sync across SAP, ServiceNow, Microsoft, and the broader enterprise ecosystem. MuleSoft was a GA Salesforce product as of July 31, 2025 and is covered under the Siemens SELA.',
     capabilities: [
-      { code: 'IAF', name: 'Agent-to-Agent (A2A) Orchestration', inSela: false, source: 'Expert Addition', description: 'Coordination of multiple specialized AI agents via a supervisor/orchestrator pattern — enabling cross-domain agentic workflows (e.g., Sales Agent + ERP Agent + Service Agent). MuleSoft Agentfabric is the underlying platform layer.' },
-      { code: 'IAM', name: 'API Management', inSela: false, source: 'Expert Addition', description: 'Lifecycle management, securing, and governance of application programming interfaces across the enterprise ecosystem.' },
-      { code: 'IEI', name: 'Enterprise Integration', inSela: false, source: 'Expert Addition', description: 'Orchestration of data and processes across disparate enterprise systems, enabling composable architecture and flow automation.' },
-      { code: 'IEP', name: 'Enterprise Platform Connectors', inSela: false, source: 'Expert Addition', description: 'Pre-built connectors to key enterprise systems (SAP, Oracle, ServiceNow, Workday) for bidirectional data sync and action execution — MuleSoft\'s Anypoint Exchange connector library as a managed capability.' },
-      { code: 'IMS', name: 'Microsoft Ecosystem Integration', inSela: false, source: 'Expert Addition', description: 'Native bidirectional integration with Microsoft 365 (Teams, Outlook, SharePoint, Copilot) — critical for enterprises with MS-centric internal tooling and for embedding Salesforce actions in Teams workflows.' }
+      { code: 'IAF', name: 'Agent-to-Agent (A2A) Orchestration', inSela: true, source: 'Expert Addition', description: 'Coordination of multiple specialized AI agents via a supervisor/orchestrator pattern — enabling cross-domain agentic workflows (e.g., Sales Agent + ERP Agent + Service Agent). MuleSoft Agentfabric is the underlying platform layer.' },
+      { code: 'IAM', name: 'API Management', inSela: true, source: 'Expert Addition', description: 'Lifecycle management, securing, and governance of application programming interfaces across the enterprise ecosystem.' },
+      { code: 'IEI', name: 'Enterprise Integration', inSela: true, source: 'Expert Addition', description: 'Orchestration of data and processes across disparate enterprise systems, enabling composable architecture and flow automation.' },
+      { code: 'IEP', name: 'Enterprise Platform Connectors', inSela: true, source: 'Expert Addition', description: 'Pre-built connectors to key enterprise systems (SAP, Oracle, ServiceNow, Workday) for bidirectional data sync and action execution — MuleSoft\'s Anypoint Exchange connector library as a managed capability.' },
+      { code: 'IMS', name: 'Microsoft Ecosystem Integration', inSela: true, source: 'Expert Addition', description: 'Native bidirectional integration with Microsoft 365 (Teams, Outlook, SharePoint, Copilot) — critical for enterprises with MS-centric internal tooling and for embedding Salesforce actions in Teams workflows.' }
     ]
   },
   {
     id: 'marketing',
     name: 'Marketing',
-    description: 'Audience segmentation, journey orchestration, content management, lead generation, and marketing analytics — supporting both inbound and outbound demand generation programs. Note: Marketing Cloud Engagement and Account Engagement (Pardot) are NOT confirmed in the SELA.',
+    description: 'Audience segmentation, journey orchestration, content management, lead generation, and marketing analytics. Note: Marketing Cloud Engagement (Email/Journey Builder) and Account Engagement (Pardot) are NOT confirmed in the Siemens SELA — these capabilities require those products to be activated.',
     capabilities: [
       { code: 'MAS', name: 'Audience Segmentation & Activation', inSela: false, source: 'V1.3', description: 'Clustering of audience into subgroups based on shared characteristics for targeted campaigns and high yield target market identification.' },
       { code: 'MCN', name: 'Content Management', inSela: false, source: 'V1.3', description: 'Collection, managing, and publishing of marketing assets and information for any channel or medium.' },
@@ -131,82 +131,82 @@ export const domainsData: Domain[] = [
   {
     id: 'order',
     name: 'Order',
-    description: 'Order capture, commerce self-service, fulfillment, inventory management, and shipping & payment — covering the full order lifecycle from purchase to delivery.',
+    description: 'Order capture, commerce self-service, fulfillment, inventory management, and shipping & payment — covering the full order lifecycle from purchase to delivery. Included in the Siemens SELA as part of the GA product coverage.',
     capabilities: [
-      { code: 'OAS', name: 'Assisted Sales & Service', inSela: false, source: 'V1.3', description: 'Provide customer sales or service agent with same experience and actions as the customer, plus additional capabilities.' },
-      { code: 'OCP', name: 'Order Capture', inSela: false, source: 'V1.3', description: 'Collect all details related to customer order including product, quantity, pricing and applying business rules.' },
-      { code: 'OCS', name: 'Commerce Self Service', inSela: false, source: 'V1.3', description: 'Ecommerce channel supporting order capture / checkout that optimizes the purchase path and experience.' },
-      { code: 'OIM', name: 'Inventory Management', inSela: false, source: 'V1.3', description: 'Manage and track product supply levels and status across channels and locations.' },
-      { code: 'OPM', name: 'Promotion Management', inSela: false, source: 'V1.3', description: 'Management of purchase incentives in concert with campaigns targeting specific customer segments.' },
-      { code: 'ORE', name: 'Recommendations & Experience', inSela: false, source: 'V1.3', description: 'Management of a customer\'s personalized experience including branding, theming, and product/content recommendations in context to user, experience and device.' },
-      { code: 'ORM', name: 'Order Management', inSela: false, source: 'V1.3', description: 'Management of filling orders from distribution center, sourcing inventory, shipping orders to customer with notification and visibility of order status.' },
-      { code: 'OSM', name: 'Search / Merchandising', inSela: false, source: 'V1.3', description: 'Tools to control and optimize how customers search and engage with products and content.' },
-      { code: 'OSP', name: 'Shipping & Payment Methods', inSela: false, source: 'V1.3', description: 'Define and manage order processing requirements including shipping methods, shipping costs, payment types, and taxes.' }
+      { code: 'OAS', name: 'Assisted Sales & Service', inSela: true, source: 'V1.3', description: 'Provide customer sales or service agent with same experience and actions as the customer, plus additional capabilities.' },
+      { code: 'OCP', name: 'Order Capture', inSela: true, source: 'V1.3', description: 'Collect all details related to customer order including product, quantity, pricing and applying business rules.' },
+      { code: 'OCS', name: 'Commerce Self Service', inSela: true, source: 'V1.3', description: 'Ecommerce channel supporting order capture / checkout that optimizes the purchase path and experience.' },
+      { code: 'OIM', name: 'Inventory Management', inSela: true, source: 'V1.3', description: 'Manage and track product supply levels and status across channels and locations.' },
+      { code: 'OPM', name: 'Promotion Management', inSela: true, source: 'V1.3', description: 'Management of purchase incentives in concert with campaigns targeting specific customer segments.' },
+      { code: 'ORE', name: 'Recommendations & Experience', inSela: true, source: 'V1.3', description: 'Management of a customer\'s personalized experience including branding, theming, and product/content recommendations in context to user, experience and device.' },
+      { code: 'ORM', name: 'Order Management', inSela: true, source: 'V1.3', description: 'Management of filling orders from distribution center, sourcing inventory, shipping orders to customer with notification and visibility of order status.' },
+      { code: 'OSM', name: 'Search / Merchandising', inSela: true, source: 'V1.3', description: 'Tools to control and optimize how customers search and engage with products and content.' },
+      { code: 'OSP', name: 'Shipping & Payment Methods', inSela: true, source: 'V1.3', description: 'Define and manage order processing requirements including shipping methods, shipping costs, payment types, and taxes.' }
     ]
   },
   {
     id: 'partner',
     name: 'Partner',
-    description: 'Partner lifecycle management — from recruitment and onboarding through joint marketing, co-selling, order fulfillment, and post-sale service management.',
+    description: 'Partner lifecycle management — from recruitment and onboarding through joint marketing, co-selling, order fulfillment, and post-sale service management. Included in the Siemens SELA as part of the GA Experience Cloud / Partner Community coverage.',
     capabilities: [
-      { code: 'PDG', name: 'Partner Development & Growth', inSela: false, source: 'V1.3', description: 'Manage partner learning, training, certifications and programs across domains.' },
-      { code: 'PJM', name: 'Joint Partner Marketing', inSela: false, source: 'V1.3', description: 'Partnership to market products — planning funds, co-branded materials, joint campaigns, events, and lead collaboration.' },
-      { code: 'POM', name: 'Partner Order Management', inSela: false, source: 'V1.3', description: 'Partnership to fulfill orders. If a distributor is involved, managing point of sales data.' },
-      { code: 'PRO', name: 'Partner Recruitment & Onboarding', inSela: false, source: 'V1.3', description: 'Enablement of fast and effective partner onboarding, partnership contracts, and managing partner contacts and attributes.' },
-      { code: 'PSM', name: 'Partner Sales Management', inSela: false, source: 'V1.3', description: 'Partnership to sell products — sharing sales lifecycle with partners, planning with partner account managers, collaborating on opportunities.' },
-      { code: 'PVM', name: 'Partner Service Management', inSela: false, source: 'V1.3', description: 'Partnership for post-sale activities including rebates, satisfaction surveys, feedback, case resolution, and performance management.' }
+      { code: 'PDG', name: 'Partner Development & Growth', inSela: true, source: 'V1.3', description: 'Manage partner learning, training, certifications and programs across domains.' },
+      { code: 'PJM', name: 'Joint Partner Marketing', inSela: true, source: 'V1.3', description: 'Partnership to market products — planning funds, co-branded materials, joint campaigns, events, and lead collaboration.' },
+      { code: 'POM', name: 'Partner Order Management', inSela: true, source: 'V1.3', description: 'Partnership to fulfill orders. If a distributor is involved, managing point of sales data.' },
+      { code: 'PRO', name: 'Partner Recruitment & Onboarding', inSela: true, source: 'V1.3', description: 'Enablement of fast and effective partner onboarding, partnership contracts, and managing partner contacts and attributes.' },
+      { code: 'PSM', name: 'Partner Sales Management', inSela: true, source: 'V1.3', description: 'Partnership to sell products — sharing sales lifecycle with partners, planning with partner account managers, collaborating on opportunities.' },
+      { code: 'PVM', name: 'Partner Service Management', inSela: true, source: 'V1.3', description: 'Partnership for post-sale activities including rebates, satisfaction surveys, feedback, case resolution, and performance management.' }
     ]
   },
   {
     id: 'platform-governance',
     name: 'Platform & Governance',
-    description: 'Enterprise-scale platform governance — data access controls, multi-org architecture for the Siemens SELA structure, and sustainability reporting. Note: Salesforce Shield and security add-ons are excluded from the SELA.',
+    description: 'Enterprise-scale platform governance — data access controls, multi-org architecture for the Siemens SELA structure, and sustainability reporting. Note: Salesforce Shield (field-level encryption, event monitoring add-on) is explicitly excluded from the SELA as a derivative/percentage-based add-on.',
     capabilities: [
-      { code: 'PGV', name: 'Data Governance & Privacy', inSela: false, source: 'Expert Addition', description: 'Management of data access controls, consent, GDPR/CCPA/global compliance, field-level security, and data residency policies — foundational for global enterprise deployments like Siemens.' },
-      { code: 'PMD', name: 'Multi-Org / Subsidiary Architecture', inSela: false, source: 'Expert Addition', description: 'Patterns and tooling for managing multiple Salesforce orgs (Home Org, Companion Orgs, subsidiaries) — directly relevant to DISW\'s structure under the Siemens SELA and Enterprise License Agreement.' },
-      { code: 'PNZ', name: 'Net Zero / Sustainability Management', inSela: false, source: 'Expert Addition', description: 'Carbon accounting, emissions tracking, supplier sustainability data management, and ESG reporting — increasingly required for Siemens\' global sustainability obligations and reporting frameworks.' }
+      { code: 'PGV', name: 'Data Governance & Privacy', inSela: true, source: 'Expert Addition', description: 'Management of data access controls, consent, GDPR/CCPA/global compliance, field-level security, and data residency policies — foundational for global enterprise deployments like Siemens. Platform-native governance features are included in the SELA; Salesforce Shield (the paid encryption/monitoring add-on) is explicitly excluded.' },
+      { code: 'PMD', name: 'Multi-Org / Subsidiary Architecture', inSela: true, source: 'Expert Addition', description: 'Patterns and tooling for managing multiple Salesforce orgs (Home Org, Companion Orgs, subsidiaries) — directly relevant to DISW\'s structure under the Siemens SELA and Enterprise License Agreement.' },
+      { code: 'PNZ', name: 'Net Zero / Sustainability Management', inSela: false, source: 'Expert Addition', description: 'Carbon accounting, emissions tracking, supplier sustainability data management, and ESG reporting — increasingly required for Siemens\' global sustainability obligations and reporting frameworks. Requires separate Net Zero Cloud license confirmation.' }
     ]
   },
   {
     id: 'sales',
     name: 'Sales',
-    description: 'The full B2B sales lifecycle — account and contact management, opportunity pipeline, forecasting, territory and quota management, guided selling, compensation, and deal support.',
+    description: 'The full B2B sales lifecycle — account and contact management, opportunity pipeline, forecasting, territory and quota management, guided selling, compensation, and deal support. All capabilities are covered under the Siemens SELA via full Sales Cloud Unlimited Edition.',
     capabilities: [
       { code: 'SAM', name: 'Account Management', inSela: true, source: 'V1.3', description: 'Tools & strategies to build relationships with customers, consumers or partners. Manage details & related information regarding accounts once identified.' },
-      { code: 'SCL', name: 'Contract Lifecycle Management', inSela: false, source: 'V1.3', description: 'Create, manage, track & automate sales agreements defining terms of business. Track through approval, renewal, and document management.' },
-      { code: 'SCM', name: 'Contact Management', inSela: false, source: 'V1.3', description: 'Acquire, store, manage, search, communicate and track engagement with individuals associated with accounts.' },
-      { code: 'SCP', name: 'Compensation Management', inSela: false, source: 'V1.3', description: 'Management and maximization of sales team performance through incentive compensation.' },
-      { code: 'SCU', name: 'Cross / Up-Sell Management (Sales)', inSela: false, source: 'V1.3', description: 'Manage product up sell and cross sell during sales process. Identify new revenue generating opportunities.' },
-      { code: 'SDS', name: 'Deal Support Requests', inSela: false, source: 'V1.3', description: 'Mechanisms to manage flow of incoming enablement requests to facilitate, route, assign and escalate needs that support a sales opportunity.' },
-      { code: 'SEM', name: 'Sales Enablement', inSela: false, source: 'V1.3', description: 'Manages information, content, plays and recommendations around competitors and supports SME collaboration for enablement.' },
-      { code: 'SGS', name: 'Guided Solution Selling', inSela: false, source: 'V1.3', description: 'Prescriptive approach to selling to determine best-fit products, suggest engagement actions, and identify alignment to organizational best practices.' },
-      { code: 'SIS', name: 'Inside Sales Management', inSela: false, source: 'V1.3', description: 'Management of sales providing internal reps with rapid access to customer identifying information for inbound/outbound engagement.' },
+      { code: 'SCL', name: 'Contract Lifecycle Management', inSela: true, source: 'V1.3', description: 'Create, manage, track & automate sales agreements defining terms of business. Track through approval, renewal, and document management.' },
+      { code: 'SCM', name: 'Contact Management', inSela: true, source: 'V1.3', description: 'Acquire, store, manage, search, communicate and track engagement with individuals associated with accounts.' },
+      { code: 'SCP', name: 'Compensation Management', inSela: true, source: 'V1.3', description: 'Management and maximization of sales team performance through incentive compensation.' },
+      { code: 'SCU', name: 'Cross / Up-Sell Management (Sales)', inSela: true, source: 'V1.3', description: 'Manage product up sell and cross sell during sales process. Identify new revenue generating opportunities.' },
+      { code: 'SDS', name: 'Deal Support Requests', inSela: true, source: 'V1.3', description: 'Mechanisms to manage flow of incoming enablement requests to facilitate, route, assign and escalate needs that support a sales opportunity.' },
+      { code: 'SEM', name: 'Sales Enablement', inSela: true, source: 'V1.3', description: 'Manages information, content, plays and recommendations around competitors and supports SME collaboration for enablement.' },
+      { code: 'SGS', name: 'Guided Solution Selling', inSela: true, source: 'V1.3', description: 'Prescriptive approach to selling to determine best-fit products, suggest engagement actions, and identify alignment to organizational best practices.' },
+      { code: 'SIS', name: 'Inside Sales Management', inSela: true, source: 'V1.3', description: 'Management of sales providing internal reps with rapid access to customer identifying information for inbound/outbound engagement.' },
       { code: 'SLM', name: 'Lead Management', inSela: true, source: 'V1.3', description: 'Set of methodologies, systems, and practices designed to generate, score, prioritize, and qualify new potential business.' },
       { code: 'SOP', name: 'Opportunity Management', inSela: true, source: 'V1.3', description: 'Manage the potential sale of products and/or services to a customer or partner to generate revenue against a forecasted quota.' },
-      { code: 'SPR', name: 'Product Management (Basic)', inSela: false, source: 'V1.3', description: 'Management of the setup and application of products used in the sales process when creating opportunities or executing CPQ operations.' },
+      { code: 'SPR', name: 'Product Management (Basic)', inSela: true, source: 'V1.3', description: 'Management of the setup and application of products used in the sales process when creating opportunities or executing CPQ operations.' },
       { code: 'SSA', name: 'Sales Analytics', inSela: true, source: 'V1.3', description: 'Management of insights and data analytics associated with the sales process.' },
       { code: 'SSP', name: 'Sales Performance Management', inSela: true, source: 'V1.3', description: 'Manage and monitor enterprise sales projections aligning to monthly or quarterly quotas. Collaborative forecasts for sales teams.' },
-      { code: 'STM', name: 'Territory Management', inSela: false, source: 'V1.3', description: 'Management of Sales Territories including criteria-based sharing, membership, and sales structure.' }
+      { code: 'STM', name: 'Territory Management', inSela: true, source: 'V1.3', description: 'Management of Sales Territories including criteria-based sharing, membership, and sales structure.' }
     ]
   },
   {
     id: 'service',
     name: 'Service',
-    description: 'Customer service and support — case management, omni-channel contact center, knowledge management, self-service, predictive AI, and field-to-service integration. Core service capabilities are included in the Siemens SELA.',
+    description: 'Customer service and support — case management, omni-channel contact center, knowledge management, self-service, predictive AI, and field-to-service integration. All capabilities are covered under the Siemens SELA via full Service Cloud Unlimited Edition.',
     capabilities: [
       { code: 'VAI', name: 'Predictive Service', inSela: true, source: 'V1.3', description: 'Automation of support processes for customers, agents and supervisors using artificial intelligence.' },
-      { code: 'VAX', name: 'Unified Agent Experience', inSela: false, source: 'V1.3', description: 'Workspace for interaction with multiple contextual channels and records on a single screen to minimize clicking and allow quick action.' },
+      { code: 'VAX', name: 'Unified Agent Experience', inSela: true, source: 'V1.3', description: 'Workspace for interaction with multiple contextual channels and records on a single screen to minimize clicking and allow quick action.' },
       { code: 'VCH', name: 'Omni-Channel Contact Center', inSela: true, source: 'V1.3', description: 'Ability to manage interactions between service requester and provider from a variety of customer service channels.' },
       { code: 'VCM', name: 'Case Management', inSela: true, source: 'V1.3', description: 'Management of the lifecycle of a service request through to resolution, including ownership, traceability, and related interactions.' },
-      { code: 'VEN', name: 'Service Contract Management & Entitlement', inSela: false, source: 'V1.3', description: 'Management of a customer\'s entitlement to service, including service type, time period or units, and SLA.' },
+      { code: 'VEN', name: 'Service Contract Management & Entitlement', inSela: true, source: 'V1.3', description: 'Management of a customer\'s entitlement to service, including service type, time period or units, and SLA.' },
       { code: 'VKB', name: 'Knowledge Management', inSela: true, source: 'V1.3', description: 'Ability to manage knowledge articles and FAQs providing detailed instructions to assist with issue resolution.' },
-      { code: 'VLN', name: 'Training & Onboarding', inSela: false, source: 'V1.3', description: 'Learning program to train and assess competence of agents plus guided service capabilities resulting in decreased ramp time and enhanced onboarding.' },
-      { code: 'VPR', name: 'Remote Monitoring & Proactive Service', inSela: false, source: 'V1.3', description: 'Monitoring of install base and proactive management of service for known issues, tracking all interactions.' },
-      { code: 'VQL', name: 'Service Quality & Supervision Analytics', inSela: false, source: 'V1.3', description: 'Supervisor visibility, actionability and analysis of support contact center quality policy, benchmarks, assessment and analysis.' },
+      { code: 'VLN', name: 'Training & Onboarding', inSela: true, source: 'V1.3', description: 'Learning program to train and assess competence of agents plus guided service capabilities resulting in decreased ramp time and enhanced onboarding.' },
+      { code: 'VPR', name: 'Remote Monitoring & Proactive Service', inSela: true, source: 'V1.3', description: 'Monitoring of install base and proactive management of service for known issues, tracking all interactions.' },
+      { code: 'VQL', name: 'Service Quality & Supervision Analytics', inSela: true, source: 'V1.3', description: 'Supervisor visibility, actionability and analysis of support contact center quality policy, benchmarks, assessment and analysis.' },
       { code: 'VSS', name: 'Self Service', inSela: true, source: 'V1.3', description: 'Publishing of formal knowledge, moderating and nurturing crowd sourced knowledge from the community to empower customers, resolve issues, and deflect cost of service.' },
-      { code: 'VSV', name: 'Feedback / Surveys / VOC', inSela: false, source: 'V1.3', description: 'Request, collection and management of customer satisfaction, net promoter and other survey results after key interactions.' },
-      { code: 'VTM', name: 'Case Teaming', inSela: false, source: 'V1.3', description: 'Unstructured collaboration between customers, partners, agents, experts and business entities on case and knowledge.' },
-      { code: 'VWA', name: 'Warranty Management', inSela: false, source: 'V1.3', description: 'Management of warranty entitlements, customer warranty registration, customer policies, warranty claims and adjudication.' }
+      { code: 'VSV', name: 'Feedback / Surveys / VOC', inSela: true, source: 'V1.3', description: 'Request, collection and management of customer satisfaction, net promoter and other survey results after key interactions.' },
+      { code: 'VTM', name: 'Case Teaming', inSela: true, source: 'V1.3', description: 'Unstructured collaboration between customers, partners, agents, experts and business entities on case and knowledge.' },
+      { code: 'VWA', name: 'Warranty Management', inSela: true, source: 'V1.3', description: 'Management of warranty entitlements, customer warranty registration, customer policies, warranty claims and adjudication.' }
     ]
   }
 ];
