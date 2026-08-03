@@ -6,6 +6,9 @@ import NotFound from '@/pages/not-found';
 
 import ExecutiveSummary from '@/pages/executive-summary';
 import ExternalResearch from '@/pages/external-research';
+import PlatformFramework from '@/pages/platform-framework';
+import Dreamforce from '@/pages/dreamforce';
+import TeamDesign from '@/pages/team-design';
 import CapabilitiesHub from '@/pages/capabilities-hub';
 import DomainPage from '@/pages/domain-page';
 
@@ -16,6 +19,9 @@ function Router() {
     <Switch>
       <Route path="/" component={ExecutiveSummary} />
       <Route path="/research" component={ExternalResearch} />
+      <Route path="/framework" component={PlatformFramework} />
+      <Route path="/dreamforce" component={Dreamforce} />
+      <Route path="/team-design" component={TeamDesign} />
       <Route path="/capabilities" component={CapabilitiesHub} />
       <Route path="/capabilities/:id" component={DomainPage} />
       <Route component={NotFound} />

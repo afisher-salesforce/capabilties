@@ -67,27 +67,52 @@ export default function ExternalResearch() {
 
         {/* Executives */}
         <section>
-          <h2 className="text-2xl font-semibold mb-6 text-foreground border-b border-border pb-2">Key Executives & Stakeholders</h2>
+          <h2 className="text-2xl font-semibold mb-2 text-foreground border-b border-border pb-2">Key Executives & Stakeholders</h2>
+          <p className="text-muted-foreground text-sm mb-6">Leadership and Salesforce-engaged contacts confirmed via account intelligence as of August 2026.</p>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {[
-              { name: "Tony Hemmelgarn", role: "President & CEO, Siemens DISW", desc: "Championing the Xcelerator platform strategy, cloud transition, and industrial metaverse narrative. Positioning DISW as the AI-powered backbone of industrial digitalization." },
-              { name: "Roland Busch", role: "President & CEO, Siemens AG (Parent)", desc: "Sets board-level expectations for AI transformation; directly quoted on both Altair and Dotmatics deals as part of the 'ONE Tech Company' growth program." },
-              { name: "Vasi Philomin", role: "EVP & Head of Data & AI", desc: "Strategic hire from Amazon (former VP GenAI / AWS Bedrock); leading development of an industrial foundational AI model and scaling 35+ AI applications." },
-              { name: "Andrew Allan", role: "CIO, Siemens DISW", desc: "Key Salesforce stakeholder; IT mandate focused on platform governance, AI transformation, and rationalizing a fragmented application landscape post-M&A." },
-              { name: "Saurabh Kumar", role: "Primary SF Program Manager & Technical Lead", desc: "Main point of contact for Salesforce technical escalations, CPQ/OmniStudio licensing, and Agentforce implementation." },
-              { name: "Jeffrey Nercesian", role: "Business Operations & Licensing", desc: "Engaged on CPQ, Advanced Approvals, Agentforce, and contract operations; key operator-level stakeholder in revenue tech." }
-            ].map((exec, i) => (
-              <div key={i} className="flex flex-col md:flex-row gap-4 bg-card border border-border p-5 rounded-lg">
-                <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary font-bold flex-shrink-0 border border-primary/20">
-                  {exec.name.split(' ').map(n => n[0]).join('')}
+              { name: "Tony Hemmelgarn", role: "President & CEO, Siemens DISW", tier: "executive", desc: "Championing the Xcelerator platform strategy, cloud transition, and industrial metaverse narrative. Positioning DISW as the AI-powered backbone of industrial digitalization." },
+              { name: "Roland Busch", role: "President & CEO, Siemens AG (Parent)", tier: "executive", desc: "Sets board-level expectations for AI transformation; directly quoted on both Altair and Dotmatics deals as part of the 'ONE Tech Company' growth program." },
+              { name: "Vasi Philomin", role: "EVP & Head of Data & AI (joined July 1, 2025)", tier: "executive", desc: "Strategic hire from Amazon (former VP GenAI / AWS Bedrock); leading development of an industrial foundational AI model and scaling 35+ AI applications. Signals board-level AI commitment." },
+              { name: "Andrew Allan", role: "CIO, Siemens DISW", tier: "sf-primary", desc: "Key Salesforce stakeholder and natural executive sponsor for Data 360 + Agentforce. IT mandate focused on platform governance, AI transformation, and rationalizing a fragmented application landscape post-M&A." },
+              { name: "Tara Jiranek", role: "Head of IT Transformation", tier: "sf-primary", desc: "Primary audience for this discussion. Leading IT-as-a-value-center mandate and shadow IT consolidation initiative. 12 registered attendees at Dreamforce '26 including Tara herself." },
+              { name: "Patrick Sluck", role: "Senior Leader, Salesforce Platform & Support Transformation", tier: "sf-primary", desc: "Key operator-level stakeholder for Salesforce platform governance and support transformation. DF'26 sessions: Build Sales Agents (3973), CPQ with Agents (3969)." },
+              { name: "Kristina Graham", role: "Head of Salesforce Admin & Release Management", tier: "sf-primary", desc: "Leads the Salesforce admin and release management org. Key upskill needed on Data 360 data model configuration and agent governance. DF'26 focus: Agentforce for Admins, Observability." },
+              { name: "Jon Peterson", role: "Senior Director, Digital Commerce and Operations", tier: "sf-extended", desc: "Digital commerce and operations lead. DF'26 focus: Session 5058 — Commerce + Data 360 (SiePortal is the world's largest B2B Salesforce Commerce implementation)." },
+              { name: "Missy Moreland-Bowers", role: "VP FINOps Strategy & Transformation", tier: "sf-extended", desc: "FINOps and financial transformation. DF'26 focus: Revenue Intelligence, Analytics — directly relevant to the ARM pilot about to start." },
+              { name: "Lane Giles", role: "Customer Support", tier: "sf-extended", desc: "Customer support stakeholder. DF'26 focus: Agentforce for Service, Einstein Conversation Insights." },
+              { name: "Susan Kacapyr", role: "Senior Manager, IT Applications Development", tier: "sf-extended", desc: "IT applications development lead. DF'26 focus: Vibe Coding, Agent Builder — critical for accelerating the developer upskill on Agentforce." },
+              { name: "Saurabh Kumar", role: "Primary SF Program Manager & Technical Lead", tier: "sf-primary", desc: "Main point of contact for Salesforce technical escalations, CPQ/OmniStudio licensing, and Agentforce implementation — active internal champion." },
+              { name: "Jeffrey Nercesian", role: "Business Operations & Licensing", tier: "sf-extended", desc: "Engaged on CPQ, Advanced Approvals, Agentforce, and contract operations; key operator-level stakeholder in revenue tech decisions." }
+            ].map((exec, i) => {
+              const tierLabel: Record<string, string> = {
+                executive: 'C-Suite',
+                'sf-primary': 'SF Primary',
+                'sf-extended': 'SF Extended',
+              };
+              const tierColor: Record<string, string> = {
+                executive: 'text-[hsl(174_71%_56%)] border-[rgba(64,224,208,0.3)] bg-[rgba(64,224,208,0.08)]',
+                'sf-primary': 'text-primary border-primary/30 bg-[rgba(0,180,180,0.1)]',
+                'sf-extended': 'text-muted-foreground border-border bg-card/50',
+              };
+              return (
+                <div key={i} className="flex flex-col md:flex-row gap-4 bg-card border border-border p-5 rounded-lg hover:border-primary/30 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-primary font-bold flex-shrink-0 border border-primary/20 text-sm">
+                    {exec.name.split(' ').map((n: string) => n[0]).join('')}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center flex-wrap gap-2 mb-0.5">
+                      <h3 className="font-bold text-foreground">{exec.name}</h3>
+                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${tierColor[exec.tier]}`}>
+                        {tierLabel[exec.tier]}
+                      </span>
+                    </div>
+                    <div className="text-sm font-medium text-primary mb-2">{exec.role}</div>
+                    <p className="text-sm text-muted-foreground">{exec.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-foreground">{exec.name}</h3>
-                  <div className="text-sm font-medium text-primary mb-2">{exec.role}</div>
-                  <p className="text-sm text-muted-foreground">{exec.desc}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

@@ -29,8 +29,11 @@ export default function ExecutiveSummary() {
         {/* Purpose */}
         <section>
           <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">Purpose of This Discussion</h2>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            This site serves as the reference guide for an executive-level discussion with Siemens Digital Industries Software (DISW) about their Salesforce platform capabilities — specifically those licensed under their Salesforce Enterprise License Agreement (SELA). The goal is to align Salesforce resources with DISW's strategic priorities, surface underutilized licensed capabilities, and identify the path to value across the full Salesforce platform.
+          <p className="text-muted-foreground leading-relaxed text-lg mb-4">
+            This site is the reference guide for an executive-level discussion with Siemens Digital Industries Software (DISW) about their Salesforce platform capabilities — specifically those licensed under their Salesforce Enterprise License Agreement (SELA). It is prepared for <span className="text-foreground font-semibold">Tara Jiranek, Head of IT Transformation</span>, in support of her IT-as-a-value-center mandate, DISW's consolidation of shadow IT back under IT governance, and the platform opportunities ahead at Dreamforce '26.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            The goal is to align Salesforce resources with DISW's strategic priorities, surface underutilized licensed capabilities, and identify the path to value across the full Salesforce platform. This document also applies to the Aug 12 DISW IT Leadership Session.
           </p>
         </section>
 
@@ -161,6 +164,59 @@ export default function ExecutiveSummary() {
               </h4>
               <p className="text-sm text-muted-foreground leading-relaxed">The Dec 2025 amendment included a one-time option to swap Agentforce entitlements back to Sales & Service Cloud UE (deadline was Jan 15, 2026). Confirm Siemens did not exercise this option.</p>
             </div>
+          </div>
+        </section>
+
+        {/* Siemens Proof Points */}
+        <section>
+          <h2 className="text-2xl font-semibold mb-2 text-foreground border-b border-border pb-2">
+            Siemens Proof Points — You Are Not Alone
+          </h2>
+          <p className="text-muted-foreground text-sm mb-6">
+            Other Siemens divisions are already live on Agentforce and Data 360. DISW doesn't need to figure this out from scratch.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                org: 'Siemens SieSales (AG)',
+                product: 'Multi-Agent Lead Qualification',
+                metrics: ['~500 inbound B2B leads/day', '11% engagement rate', '100% response rate', '87% CSAT'],
+                note: 'Published Salesforce customer story.',
+              },
+              {
+                org: 'Siemens Energy Gas Services',
+                product: 'Agentforce Service Agent',
+                metrics: ['Live in production since January 2026', 'Customer technical support automation'],
+                note: 'Proven production deployment — not a pilot.',
+              },
+              {
+                org: 'Siemens AG / SiePortal',
+                product: 'Headless 360 Commerce on Agentforce',
+                metrics: ['1.3M customers', '70+ regions', 'Largest B2B Salesforce Commerce implementation ever'],
+                note: 'Speaking at Dreamforce — Session 5058.',
+              },
+              {
+                org: 'Siemens Energy — Berlin Hackathon',
+                product: '3-Day Agentforce POC Sprint',
+                metrics: ['45 participants', '3 POCs built', '$5M+ combined estimated business value'],
+                note: 'Focus areas: Customer Self-Service, Human Agent Augmentation, Customer 360.',
+              },
+            ].map((p, i) => (
+              <div key={i} className="bg-card border border-border rounded-lg p-5 hover:border-primary/40 transition-colors">
+                <div className="mb-3">
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-0.5">{p.org}</p>
+                  <h3 className="font-bold text-foreground">{p.product}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {p.metrics.map((m) => (
+                    <span key={m} className="text-xs bg-[rgba(0,180,180,0.1)] text-primary border border-primary/20 rounded-full px-2.5 py-1 font-medium">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground">{p.note}</p>
+              </div>
+            ))}
           </div>
         </section>
 

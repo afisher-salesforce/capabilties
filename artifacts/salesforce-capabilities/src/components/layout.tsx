@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Menu, X, ChevronDown, ChevronRight, FileText, BarChart3, Database } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, FileText, BarChart3, Database, Layers, Star, Users } from 'lucide-react';
 import { domainsData } from '@/data/capabilities';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -19,6 +19,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navLinks = [
     { name: 'Executive Summary', href: '/', icon: FileText },
     { name: 'External Research', href: '/research', icon: BarChart3 },
+    { name: 'Platform Framework', href: '/framework', icon: Layers },
+    { name: "Dreamforce '26", href: '/dreamforce', icon: Star },
+    { name: 'Team Design', href: '/team-design', icon: Users },
   ];
 
   return (
