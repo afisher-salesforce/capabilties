@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRoute } from 'wouter';
 import Layout from '@/components/layout';
 import { domainsData } from '@/data/capabilities';
@@ -9,6 +9,22 @@ export default function DomainPage() {
   const domainId = params?.id;
   
   const domain = domainsData.find(d => d.id === domainId);
+
+  // Scroll to a specific capability card when navigated from search (URL hash = capability code)
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash) return;
+    // Short delay lets the page render before scrolling
+    const timer = setTimeout(() => {
+      const el = document.getElementById(`cap-${hash}`);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('ring-2', 'ring-primary', 'ring-offset-2', 'ring-offset-background');
+        setTimeout(() => el.classList.remove('ring-2', 'ring-primary', 'ring-offset-2', 'ring-offset-background'), 2500);
+      }
+    }, 120);
+    return () => clearTimeout(timer);
+  }, [domainId]);
 
   if (!match || !domain) {
     return <NotFound />;
@@ -43,8 +59,9 @@ export default function DomainPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {domain.capabilities.map((cap) => (
             <div 
-              key={cap.code} 
-              className={`bg-card rounded-xl p-6 flex flex-col transition-colors ${
+              key={cap.code}
+              id={`cap-${cap.code}`}
+              className={`bg-card rounded-xl p-6 flex flex-col transition-all duration-500 ${
                 cap.inSela 
                   ? 'border-2 border-primary/60 shadow-[0_0_15px_rgba(0,180,180,0.1)]' 
                   : 'border border-border'

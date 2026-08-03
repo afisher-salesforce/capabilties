@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Menu, X, ChevronDown, ChevronRight, FileText, BarChart3, Database, Layers, Star, Users } from 'lucide-react';
 import { domainsData } from '@/data/capabilities';
+import CapabilitySearch from '@/components/capability-search';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -49,6 +50,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <h1 className="text-xl font-bold tracking-tight text-foreground">Siemens DISW</h1>
           <p className="text-xs text-muted-foreground mt-1">Salesforce Capabilities Discussion</p>
         </div>
+
+        <CapabilitySearch onNavigate={() => setIsMobileMenuOpen(false)} />
 
         <nav className="flex-1 overflow-y-auto p-4 space-y-1">
           {navLinks.map((link) => {
