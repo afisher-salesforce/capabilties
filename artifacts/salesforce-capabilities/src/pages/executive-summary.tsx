@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@/components/layout';
+import PageFlowNav from '@/components/page-flow-nav';
 
 export default function ExecutiveSummary() {
   return (
@@ -257,6 +258,7 @@ export default function ExecutiveSummary() {
         </section>
 
       </div>
+      <PageFlowNav currentPath="/" />
     </Layout>
   );
 }

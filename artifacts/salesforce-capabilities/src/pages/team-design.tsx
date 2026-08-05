@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@/components/layout';
+import PageFlowNav from '@/components/page-flow-nav';
 
 const roles = [
   {
@@ -190,6 +191,7 @@ export default function TeamDesign() {
         </section>
 
       </div>
+      <PageFlowNav currentPath="/team-design" />
     </Layout>
   );
 }

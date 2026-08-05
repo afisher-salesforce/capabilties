@@ -11,6 +11,7 @@ import Dreamforce from '@/pages/dreamforce';
 import TeamDesign from '@/pages/team-design';
 import CapabilitiesHub from '@/pages/capabilities-hub';
 import DomainPage from '@/pages/domain-page';
+import ForwardLookingStatements from '@/pages/forward-looking-statements';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/team-design" component={TeamDesign} />
       <Route path="/capabilities" component={CapabilitiesHub} />
       <Route path="/capabilities/:id" component={DomainPage} />
+      <Route path="/forward-looking-statements" component={ForwardLookingStatements} />
       <Route component={NotFound} />
     </Switch>
   );
