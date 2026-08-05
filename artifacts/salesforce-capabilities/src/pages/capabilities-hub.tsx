@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import Layout from '@/components/layout';
 import { domainsData } from '@/data/capabilities';
 import { ArrowRight } from 'lucide-react';
+import PageFlowNav from '@/components/page-flow-nav';
 
 export default function CapabilitiesHub() {
   const totalCapabilities = domainsData.reduce((acc, domain) => acc + domain.capabilities.length, 0);
@@ -89,6 +90,7 @@ export default function CapabilitiesHub() {
           })}
         </div>
       </div>
+      <PageFlowNav currentPath="/capabilities" />
     </Layout>
   );
 }

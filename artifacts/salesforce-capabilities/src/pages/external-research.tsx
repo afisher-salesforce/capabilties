@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@/components/layout';
+import PageFlowNav from '@/components/page-flow-nav';
 
 export default function ExternalResearch() {
   return (
@@ -201,6 +202,7 @@ export default function ExternalResearch() {
         </section>
 
       </div>
+      <PageFlowNav currentPath="/research" />
     </Layout>
   );
 }

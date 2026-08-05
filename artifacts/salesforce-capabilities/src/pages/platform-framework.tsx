@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@/components/layout';
+import PageFlowNav from '@/components/page-flow-nav';
 
 const layers = [
   {
@@ -173,6 +174,7 @@ export default function PlatformFramework() {
         </section>
 
       </div>
+      <PageFlowNav currentPath="/framework" />
     </Layout>
   );
 }
