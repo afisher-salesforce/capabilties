@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Salesforce Capabilities"
+description = "An executive-level discussion site for Siemens DISW about Salesforce Capabilities, particularly those licensed under their Salesforce Enterprise License Agreement (SELA). Features an executive summary, external research brief, full Salesforce capabilities map across 14 domains with SELA highlights, and individual domain pages."
+version = "1.0.0"
+id = "artifacts/salesforce-capabilities"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24311
+
+[services.development]
+run = "pnpm --filter @workspace/salesforce-capabilities run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/salesforce-capabilities", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/salesforce-capabilities/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24311"
+BASE_PATH = "/"
