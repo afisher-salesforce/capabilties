@@ -180,9 +180,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <div className="p-4 border-t border-border">
           <p className="text-[10px] uppercase tracking-wide text-muted-foreground mb-2">Powered by</p>
-          <div className="bg-white rounded-lg border border-border px-3 py-2 flex justify-center">
-            <img src="/salesforce-logo.jpg" alt="Salesforce" className="h-10 w-auto object-contain" />
-          </div>
+          <img
+            src="/salesforce-logo-v2.jpg"
+            alt="Salesforce"
+            className="block w-full max-w-[170px] h-auto mx-auto"
+          />
         </div>
       </aside>
 
