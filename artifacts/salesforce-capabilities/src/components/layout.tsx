@@ -33,32 +33,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navBeforeCapabilities = primaryNavItems.slice(0, capabilitiesIndex);
   const navAfterCapabilities = primaryNavItems.slice(capabilitiesIndex + 1);
   const navToggleLabel = isNavCollapsed ? 'Show Navigation' : 'Hide Navigation';
-  const navTogglePositionClass = isNavCollapsed ? 'left-4' : 'left-4 md:left-[19.25rem]';
-  const mobileToggleLabel = isMobileMenuOpen ? 'Close Navigation' : 'Show Navigation';
+  const navTogglePositionClass = isNavCollapsed ? 'left-4' : 'left-[19.25rem]';
+  const mobileToggleLabel = isMobileMenuOpen ? 'Hide' : 'Show';
 
   return (
     <div className="min-h-[100dvh] flex flex-col md:flex-row bg-background text-foreground">
       <button
         type="button"
         aria-label={navToggleLabel}
-        className={`fixed top-4 z-50 rounded-md border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors flex items-center justify-center px-3 py-1.5 text-xs font-semibold shadow-sm ${
+        className={`hidden md:flex fixed top-4 z-50 rounded-md border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors items-center justify-center px-3 py-1.5 text-xs font-semibold shadow-sm ${
           navTogglePositionClass
         }`}
-        onClick={() => {
-          if (window.innerWidth < 768) {
-            setIsMobileMenuOpen(!isMobileMenuOpen);
-            return;
-          }
-          setIsNavCollapsed(!isNavCollapsed);
-        }}
+        onClick={() => setIsNavCollapsed(!isNavCollapsed)}
       >
-        <span className="md:hidden">{mobileToggleLabel}</span>
-        <span className="hidden md:inline">{navToggleLabel}</span>
+        {navToggleLabel}
       </button>
 
       {/* Mobile Header */}
-      <header className="md:hidden flex items-center p-4 pl-16 border-b border-border bg-card sticky top-0 z-40">
+      <header className="md:hidden flex items-center justify-between gap-3 p-4 border-b border-border bg-card sticky top-0 z-40">
         <div className="font-semibold text-primary truncate">Siemens DISW</div>
+        <button
+          type="button"
+          aria-label={isMobileMenuOpen ? 'Hide navigation' : 'Show navigation'}
+          className="rounded-md border border-border bg-background px-2.5 py-1 text-xs font-semibold text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {mobileToggleLabel}
+        </button>
       </header>
 
       {/* Sidebar */}
