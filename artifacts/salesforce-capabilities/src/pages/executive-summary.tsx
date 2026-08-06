@@ -17,7 +17,7 @@ export default function ExecutiveSummary() {
         
         <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-10">
           <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight mb-2">
-            Siemens DISW | Salesforce Capabilities Discussion
+            Siemens DISW | Salesforce Capabilities
           </h1>
           <p className="text-xl md:text-2xl text-primary font-medium">
             Enterprise License Agreement Review & Capability Roadmap
@@ -61,15 +61,6 @@ export default function ExecutiveSummary() {
               <div className="text-sm text-muted-foreground mt-1">Post-date GA products and separate product families (for example Tableau and Slack) require separate agreements or addenda.</div>
             </div>
             
-            <div className="pt-4 border-t border-border bg-[rgba(0,180,180,0.05)] -mx-6 -mb-6 p-6 rounded-b-lg border-primary/20">
-              <div className="text-primary font-semibold mb-1 flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-primary inline-block"></span>
-                Key Nuance
-              </div>
-              <div className="text-foreground">
-                <span className="font-bold">In SELA ≠ In Production</span> — Licenses being available under the SELA doesn't mean they're provisioned or activated in DISW's specific org(s). Deployment is a separate motion.
-              </div>
-            </div>
           </div>
         </section>
 
@@ -82,14 +73,15 @@ export default function ExecutiveSummary() {
               <h3 className="text-lg font-semibold text-primary mb-3">Agentforce (AI Agents)</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Agentforce Unlimited Edition</strong> — Autonomous AI agents for Sales (SDR, Coach, Pipeline Health), Service (Digital Agent, Case Routing, Dispatch), and Field Service. Includes Agentforce Builder, Atlas Reasoning Engine, and Human Escalation Handoff.</span></li>
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Additional Einstein Requests for Agentforce</strong> — per-agent AI request pool</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Flex Credit Consumption Model</strong> — Agentforce usage is governed through pooled enterprise Flex Credits and allocation controls.</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Agentforce Coworker</strong> — Employee-facing agent experiences for internal productivity and guided execution use cases.</span></li>
               </ul>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors shadow-sm">
-              <h3 className="text-lg font-semibold text-primary mb-3">Data Cloud & AI</h3>
+              <h3 className="text-lg font-semibold text-primary mb-3">Data 360</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Customer Data Cloud - Data Services Card</strong> — Enables: identity resolution, unified customer profiles, vector search / RAG grounding for agent knowledge, segment-based activation</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Data 360 - Data Cloud One Companion Org</strong> — Enables identity resolution, unified profiles, vector search / RAG grounding, and segment-based activation</span></li>
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <strong className="text-foreground">Data Cloud Provisioning</strong></li>
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <strong className="text-foreground">Salesforce Foundations - Data Cloud Segmentation & Activation</strong></li>
               </ul>
@@ -99,6 +91,7 @@ export default function ExecutiveSummary() {
               <h3 className="text-lg font-semibold text-primary mb-3">Service AI</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Einstein for Service Add-on - Unlimited Edition</strong> — Case classification & routing, article recommendations, work summaries, case summaries, Knowledge Article generation</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Agentforce for Service</strong> — Digital service agents, escalations, and workflow execution for support operations.</span></li>
               </ul>
             </div>
 
@@ -106,22 +99,22 @@ export default function ExecutiveSummary() {
               <h3 className="text-lg font-semibold text-primary mb-3">Platform Foundation</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Salesforce Foundations</strong> — base entitlement bundle unlocking CRM + AI foundations across all clouds</span></li>
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Einstein Trust Layer</strong> — zero data retention, PII masking, audit logging across all AI interactions</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Atlas Trust Layer</strong> — zero data retention, PII masking, and audit logging across AI interactions.</span></li>
               </ul>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors shadow-sm">
-              <h3 className="text-lg font-semibold text-primary mb-3">Sales & Service Core</h3>
+              <h3 className="text-lg font-semibold text-primary mb-3">Core Sales & Service Features</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Sales Cloud AI</strong> — Einstein Opportunity & Lead Scoring, Activity Capture, Deal Insights, Forecasting, Email Insights, Pipeline Inspection AI</span></li>
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Service Cloud AI</strong> — Case Classification, Article Recommendations, Reply Recommendations, Conversation Mining, Next Best Action</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Sales Cloud</strong> — Opportunity and lead management, forecasting, activity capture, and pipeline execution.</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Service Cloud</strong> — Case management, knowledge, routing, and service workflow orchestration.</span></li>
               </ul>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 hover:border-primary/50 transition-colors shadow-sm">
               <h3 className="text-lg font-semibold text-primary mb-3">Analytics & Industry</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Tableau Plus</strong> (Creator, Explorer, Viewer) — includes Ask Data, Explain Data, and Auto-Insights</span></li>
+                <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">CRM Analytics (Tableau CRM)</strong> — Salesforce-native dashboards, KPI monitoring, and embedded analytics for Sales and Service workflows.</span></li>
                 <li className="flex gap-2"><span className="text-primary mt-1">•</span> <span><strong className="text-foreground">Field Service & Manufacturing</strong> — Contractor, Dispatcher & Field Technician (UE), Manufacturing Cloud</span></li>
               </ul>
             </div>
@@ -162,9 +155,9 @@ export default function ExecutiveSummary() {
             <div className="bg-card/50 backdrop-blur-sm border border-primary/20 rounded-lg p-5">
               <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                 <span className="text-primary font-mono text-sm border border-primary/30 rounded px-1.5 py-0.5">04</span>
-                Agentforce Swap Clause
+                Agreement Path Must Be Tagged
               </h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">The Dec 2025 amendment included a one-time option to swap Agentforce entitlements back to Sales & Service Cloud UE (deadline was Jan 15, 2026). Confirm Siemens did not exercise this option.</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Each priority capability should be tagged to one of four agreement paths: Main SELA, Agentforce/Data 360 amendment, MuleSoft amendment, or separate agreement.</p>
             </div>
           </div>
         </section>
@@ -196,6 +189,12 @@ export default function ExecutiveSummary() {
                 product: 'Connected Customer Vision + Signature Success Motion',
                 metrics: ['Signature Success launched July 2026', 'ARM evaluation in progress', 'ASLM and Manufacturing Cloud fit validated'],
                 note: 'Relevant comparator for DISW execution planning.',
+              },
+              {
+                org: 'Siemens DISW IT Leadership',
+                product: "Dreamforce '26 Activation Readiness",
+                metrics: ['12 registered attendees', 'Cross-functional participation across IT, operations, and admin leadership', 'Aug 12 leadership alignment session in scope'],
+                note: 'Strong internal readiness signal for coordinated activation planning.',
               },
             ].map((p, i) => (
               <div key={i} className="bg-card border border-border rounded-lg p-5 hover:border-primary/40 transition-colors">

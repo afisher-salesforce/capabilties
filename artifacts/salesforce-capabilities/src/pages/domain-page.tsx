@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRoute } from 'wouter';
 import Layout from '@/components/layout';
-import { domainsData, getAccessStatusLabel, resolveCapabilityAccessStatus } from '@/data/capabilities';
+import { domainsData, getAccessStatusLabel, isLicensedAccessStatus, resolveCapabilityAccessStatus } from '@/data/capabilities';
 import NotFound from './not-found';
 
 export default function DomainPage() {
@@ -30,7 +30,7 @@ export default function DomainPage() {
     return <NotFound />;
   }
 
-  const accessibleCount = domain.capabilities.filter(c => resolveCapabilityAccessStatus(domain.id, c) !== 'not-available').length;
+  const licensedCount = domain.capabilities.filter(c => isLicensedAccessStatus(resolveCapabilityAccessStatus(domain.id, c))).length;
 
   return (
     <Layout>
@@ -48,8 +48,8 @@ export default function DomainPage() {
           <div className="mt-6 flex items-center gap-4 text-sm">
             <span className="text-muted-foreground">{domain.capabilities.length} Total Capabilities</span>
             <span className="text-border">•</span>
-            <span className={accessibleCount > 0 ? "text-[#40e0d0] font-medium" : "text-muted-foreground"}>
-              {accessibleCount} with Confirmed Access
+            <span className={licensedCount > 0 ? "text-[#40e0d0] font-medium" : "text-muted-foreground"}>
+              {licensedCount} Licensed
             </span>
           </div>
         </div>
@@ -59,13 +59,13 @@ export default function DomainPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {domain.capabilities.map((cap) => {
             const accessStatus = resolveCapabilityAccessStatus(domain.id, cap);
-            const hasAccess = accessStatus !== 'not-available';
+            const isLicensed = isLicensedAccessStatus(accessStatus);
             return (
             <div
               key={cap.code}
               id={`cap-${cap.code}`}
               className={`bg-card rounded-xl p-6 flex flex-col transition-all duration-500 scroll-mt-8 ${
-                hasAccess
+                isLicensed
                   ? 'border-2 border-primary/60 shadow-[0_0_15px_rgba(0,180,180,0.1)]'
                   : 'border border-border'
               }`}
@@ -78,7 +78,7 @@ export default function DomainPage() {
                   <h3 className="text-lg font-bold text-foreground">{cap.name}</h3>
                 </div>
                 <div className={`flex-shrink-0 whitespace-nowrap border text-xs font-bold px-3 py-1 rounded-full tracking-wide ${
-                  hasAccess
+                  isLicensed
                     ? 'bg-[rgba(0,180,180,0.15)] text-[#40e0d0] border-primary'
                     : 'bg-background text-muted-foreground border-border'
                 }`}>
