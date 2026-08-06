@@ -2,11 +2,11 @@ import React from 'react';
 import Layout from '@/components/layout';
 import PageFlowNav from '@/components/page-flow-nav';
 
-const statements = [
-  'This site includes forward-looking statements about potential product capabilities, roadmap direction, and expected business outcomes.',
-  'Any unreleased services, features, or functionality referenced are informational only and are not commitments to deliver specific capabilities in any given timeframe.',
-  'Purchasing decisions should be made based on currently available features and services as described in executed agreements and official Salesforce documentation.',
-  'Statements about future architecture, deployment, or value realization assume successful governance, adoption, and change-management execution by Siemens DISW.',
+const VERBATIM_FORWARD_LOOKING_STATEMENT = [
+  'This presentation may include forward-looking statements regarding product capabilities, roadmap direction, and expected outcomes.',
+  'Any unreleased services, features, or functionality referenced are informational only and do not represent a commitment to deliver any specific capability by a particular date.',
+  'Purchasing decisions should be made based only on currently available products and services as documented in executed agreements and official Salesforce documentation.',
+  'Salesforce has no obligation to pursue or deliver future product capabilities, and delivery timing and content remain subject to change at Salesforce sole discretion.',
 ];
 
 export default function ForwardLookingStatements() {
@@ -24,10 +24,10 @@ export default function ForwardLookingStatements() {
         </div>
       </div>
 
-      <div className="max-w-5xl mx-auto p-6 md:p-12 space-y-10">
+      <div className="max-w-4xl mx-auto p-6 md:p-12 space-y-10">
         <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
           <h2 className="text-2xl font-semibold text-foreground mb-3">Important Notice</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-8 max-w-3xl">
             This content is intended for strategic planning discussions. It is not a contractual offer, warranty,
             or legal representation regarding future product delivery.
           </p>
@@ -35,16 +35,19 @@ export default function ForwardLookingStatements() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-5 text-foreground border-b border-border pb-2">
-            Standard Forward Looking Language
+            Verbatim Forward Looking Statement
           </h2>
-          <div className="space-y-4">
-            {statements.map((statement, index) => (
+          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
+            Legal wording shown in full; do not paraphrase.
+          </p>
+          <div className="space-y-4 max-w-3xl">
+            {VERBATIM_FORWARD_LOOKING_STATEMENT.map((statement, index) => (
               <div key={statement} className="bg-card border border-border rounded-lg p-5">
                 <div className="flex gap-3 items-start">
                   <span className="text-primary font-mono text-xs border border-primary/30 rounded px-1.5 py-0.5 mt-0.5">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <p className="text-muted-foreground leading-relaxed">{statement}</p>
+                  <p className="text-muted-foreground leading-8">{statement}</p>
                 </div>
               </div>
             ))}
@@ -53,7 +56,7 @@ export default function ForwardLookingStatements() {
 
         <section className="bg-card border border-border rounded-xl p-6 md:p-8">
           <h2 className="text-xl font-semibold text-foreground mb-3">Reference Policy</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-8 max-w-3xl">
             Salesforce has no obligation to deliver future features or functionality and future roadmap items may change
             at Salesforce&apos;s sole discretion. This deck should be used with that understanding for all planning,
             investment, and sequencing decisions.

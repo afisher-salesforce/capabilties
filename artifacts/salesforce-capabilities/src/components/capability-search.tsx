@@ -8,6 +8,9 @@ interface Result {
   name: string;
   description: string;
   inSela: boolean;
+  location: string;
+  pageTitle: string;
+  pageHref: string;
   domainId: string;
   domainName: string;
 }
@@ -19,6 +22,9 @@ const allCapabilities: Result[] = domainsData.flatMap((domain) =>
     name: cap.name,
     description: cap.description,
     inSela: cap.inSela,
+    location: `${domain.name} Domain`,
+    pageTitle: `${domain.name} Domain`,
+    pageHref: `/capabilities/${domain.id}`,
     domainId: domain.id,
     domainName: domain.name,
   }))
@@ -67,7 +73,7 @@ export default function CapabilitySearch({ onNavigate }: { onNavigate?: () => vo
 
   const handleSelect = useCallback(
     (result: Result) => {
-      navigate(`/capabilities/${result.domainId}#${result.code}`);
+      navigate(`${result.pageHref}#${result.code}`);
       clearSearch();
       onNavigate?.();
     },
@@ -193,7 +199,7 @@ export default function CapabilitySearch({ onNavigate }: { onNavigate?: () => vo
                       )}
                     </div>
                     <div className="flex items-center gap-1.5 mt-0.5">
-                      <span className="text-[11px] text-muted-foreground/70">{result.domainName}</span>
+                      <span className="text-[11px] text-muted-foreground/70">{result.location}</span>
                     </div>
                     {result.description.toLowerCase().includes(query.toLowerCase()) &&
                       !result.name.toLowerCase().includes(query.toLowerCase()) &&
