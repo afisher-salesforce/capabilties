@@ -33,22 +33,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navBeforeCapabilities = primaryNavItems.slice(0, capabilitiesIndex);
   const navAfterCapabilities = primaryNavItems.slice(capabilitiesIndex + 1);
   const navToggleLabel = isNavCollapsed ? 'Show Navigation' : 'Hide Navigation';
-  const navTogglePositionClass = isNavCollapsed ? 'left-4' : 'left-[19.25rem]';
   const mobileToggleLabel = isMobileMenuOpen ? 'Hide' : 'Show';
 
   return (
     <div className="min-h-[100dvh] flex flex-col md:flex-row bg-background text-foreground">
-      <button
-        type="button"
-        aria-label={navToggleLabel}
-        className={`hidden md:flex fixed top-4 z-50 rounded-md border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors items-center justify-center px-3 py-1.5 text-xs font-semibold shadow-sm ${
-          navTogglePositionClass
-        }`}
-        onClick={() => setIsNavCollapsed(!isNavCollapsed)}
-      >
-        {navToggleLabel}
-      </button>
-
       {/* Mobile Header */}
       <header className="md:hidden flex items-center justify-between gap-3 p-4 border-b border-border bg-card sticky top-0 z-40">
         <div className="font-semibold text-primary truncate">Siemens DISW</div>
@@ -190,6 +178,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0">
+        <div className="hidden md:flex h-14 items-center border-b border-border bg-card px-4">
+          <button
+            type="button"
+            aria-label={navToggleLabel}
+            className="rounded-md border border-border bg-background text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors items-center justify-center px-3 py-1.5 text-xs font-semibold shadow-sm"
+            onClick={() => setIsNavCollapsed(!isNavCollapsed)}
+          >
+            {navToggleLabel}
+          </button>
+        </div>
         <div className="flex-1">
           {children}
         </div>
