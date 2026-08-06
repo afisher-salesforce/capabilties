@@ -2,15 +2,40 @@ export interface Capability {
   code: string;
   name: string;
   inSela: boolean;
+  accessStatus?: AccessStatus;
   source: string;
   description: string;
 }
+
+export type AccessStatus =
+  | 'main-sela'
+  | 'agentforce-amendment'
+  | 'mulesoft-amendment'
+  | 'separate-agreement'
+  | 'not-available';
 
 export interface Domain {
   id: string;
   name: string;
   description: string;
   capabilities: Capability[];
+}
+
+export function getAccessStatusLabel(status: AccessStatus): string {
+  switch (status) {
+    case 'main-sela':
+      return 'Main SELA';
+    case 'agentforce-amendment':
+      return 'Agentforce/Data Cloud Amendment';
+    case 'mulesoft-amendment':
+      return 'MuleSoft Amendment';
+    case 'separate-agreement':
+      return 'Separate Agreement Required';
+    case 'not-available':
+      return 'Not Available';
+    default:
+      return 'Access Status Pending';
+  }
 }
 
 export const domainsData: Domain[] = [
@@ -39,9 +64,9 @@ export const domainsData: Domain[] = [
   {
     id: 'collaboration',
     name: 'Collaboration',
-    description: 'Slack-powered team collaboration — AI agents embedded in channels via Agentforce are covered in the Siemens SELA. Note: Slack core licensing (Enterprise Grid, Connect) requires a separate Slack license and is not covered under the SELA.',
+    description: 'Slack-powered collaboration capabilities require a separate Slack agreement. Agent experiences in Slack are dependent on Slack licensing plus relevant Salesforce entitlements.',
     capabilities: [
-      { code: 'CAF', name: 'Agentforce in Slack', inSela: true, source: 'Expert Addition', description: 'Deployment of AI agents natively within Slack channels and DMs — enabling employees to invoke agents, receive AI summaries, and execute CRM actions entirely within their collaboration flow. The Agentforce capability layer is covered in the Siemens SELA.' },
+      { code: 'CAF', name: 'Agentforce in Slack', inSela: false, source: 'Expert Addition', description: 'Deployment of AI agents natively within Slack channels and DMs — enabling employees to invoke agents, receive AI summaries, and execute CRM actions entirely within their collaboration flow. Requires a separate Slack agreement.' },
       { code: 'CSC', name: 'Slack Connect / External Collaboration', inSela: false, source: 'Expert Addition', description: 'Secure cross-company channel collaboration with customers, partners, and vendors — enables digital account rooms, shared deal workspaces, and partner onboarding experiences beyond the firewall. Requires a separate Slack license.' },
       { code: 'CTC', name: 'Asynchronous Team Collaboration', inSela: false, source: 'Expert Addition', description: 'Persistent channel-based messaging, huddles, and workflow execution connecting people, tools, and partners securely. Requires a separate Slack license.' }
     ]
@@ -103,9 +128,9 @@ export const domainsData: Domain[] = [
   {
     id: 'integration',
     name: 'Integration',
-    description: 'Enterprise integration, API management, and pre-built connectors — enabling composable architecture and bidirectional data sync across SAP, ServiceNow, Microsoft, and the broader enterprise ecosystem. MuleSoft was a GA Salesforce product as of July 31, 2025 and is covered under the Siemens SELA.',
+    description: 'Enterprise integration, API management, and pre-built connectors — enabling composable architecture and bidirectional data sync across SAP, ServiceNow, Microsoft, and the broader enterprise ecosystem. MuleSoft access for DISW is governed through Siemens Corporation amendment #02565632.1.',
     capabilities: [
-      { code: 'IAF', name: 'Agent-to-Agent (A2A) Orchestration', inSela: false, source: 'Expert Addition', description: 'Coordination of multiple specialized AI agents via a supervisor/orchestrator pattern — enabling cross-domain agentic workflows (e.g., Sales Agent + ERP Agent + Service Agent). The full capability requires MuleSoft Agentforce Fabric, which went GA after July 31, 2025 and is NOT included in the Siemens SELA — a separate addendum is required.' },
+      { code: 'IAF', name: 'Agent-to-Agent (A2A) Orchestration', inSela: true, source: 'Expert Addition', description: 'Coordination of multiple specialized AI agents via a supervisor/orchestrator pattern — enabling cross-domain agentic workflows (e.g., Sales Agent + ERP Agent + Service Agent). Delivered through MuleSoft orchestration capabilities governed by the Siemens Corporation MuleSoft amendment.' },
       { code: 'IAM', name: 'API Management', inSela: true, source: 'Expert Addition', description: 'Lifecycle management, securing, and governance of application programming interfaces across the enterprise ecosystem.' },
       { code: 'IEI', name: 'Enterprise Integration', inSela: true, source: 'Expert Addition', description: 'Orchestration of data and processes across disparate enterprise systems, enabling composable architecture and flow automation.' },
       { code: 'IEP', name: 'Enterprise Platform Connectors', inSela: true, source: 'Expert Addition', description: 'Pre-built connectors to key enterprise systems (SAP, Oracle, ServiceNow, Workday) for bidirectional data sync and action execution — MuleSoft\'s Anypoint Exchange connector library as a managed capability.' },
@@ -175,7 +200,7 @@ export const domainsData: Domain[] = [
       { code: 'SAM', name: 'Account Management', inSela: true, source: 'V1.3', description: 'Tools & strategies to build relationships with customers, consumers or partners. Manage details & related information regarding accounts once identified.' },
       { code: 'SCL', name: 'Contract Lifecycle Management', inSela: true, source: 'V1.3', description: 'Create, manage, track & automate sales agreements defining terms of business. Track through approval, renewal, and document management.' },
       { code: 'SCM', name: 'Contact Management', inSela: true, source: 'V1.3', description: 'Acquire, store, manage, search, communicate and track engagement with individuals associated with accounts.' },
-      { code: 'SCP', name: 'Compensation Management', inSela: true, source: 'V1.3', description: 'Management and maximization of sales team performance through incentive compensation.' },
+      { code: 'SCP', name: 'Compensation Management', inSela: false, source: 'V1.3', description: 'Management and maximization of sales team performance through incentive compensation. Salesforce Spiff is not included in current Siemens agreements and requires separate purchase.' },
       { code: 'SCU', name: 'Cross / Up-Sell Management (Sales)', inSela: true, source: 'V1.3', description: 'Manage product up sell and cross sell during sales process. Identify new revenue generating opportunities.' },
       { code: 'SDS', name: 'Deal Support Requests', inSela: true, source: 'V1.3', description: 'Mechanisms to manage flow of incoming enablement requests to facilitate, route, assign and escalate needs that support a sales opportunity.' },
       { code: 'SEM', name: 'Sales Enablement', inSela: true, source: 'V1.3', description: 'Manages information, content, plays and recommendations around competitors and supports SME collaboration for enablement.' },
@@ -210,3 +235,25 @@ export const domainsData: Domain[] = [
     ]
   }
 ];
+
+const AGENTFORCE_AMENDMENT_CODES = new Set([
+  'DAG', 'DDH', 'DEL', 'DFC', 'DGA', 'DIR', 'DUP', 'DVS', 'AEX',
+]);
+
+const MULESOFT_AMENDMENT_CODES = new Set([
+  'IAF', 'IAM', 'IEI', 'IEP', 'IMS',
+]);
+
+const SEPARATE_AGREEMENT_CODES = new Set([
+  'APC', 'CAF', 'CSC', 'CTC', 'MPA', 'PNZ', 'SCP',
+]);
+
+export function resolveCapabilityAccessStatus(domainId: string, capability: Capability): AccessStatus {
+  if (capability.accessStatus) return capability.accessStatus;
+  if (SEPARATE_AGREEMENT_CODES.has(capability.code)) return 'separate-agreement';
+  if (MULESOFT_AMENDMENT_CODES.has(capability.code)) return 'mulesoft-amendment';
+  if (AGENTFORCE_AMENDMENT_CODES.has(capability.code)) return 'agentforce-amendment';
+  if (!capability.inSela) return 'not-available';
+  if (domainId === 'data-ai') return 'agentforce-amendment';
+  return 'main-sela';
+}

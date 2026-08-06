@@ -35,22 +35,22 @@ const layers = [
   },
 ];
 
-const shadowItQuestions = [
+const accessValidationQuestions = [
   {
-    q: 'Is there a native Salesforce capability that covers this use case?',
-    hint: 'Check the 14-domain capability map — often the answer is already licensed in the SELA.',
+    q: 'Which agreement path governs this capability (main SELA, amendment, or separate agreement)?',
+    hint: 'Confirm entitlement source first, then validate org-level provisioning and activation status.',
   },
   {
-    q: 'Can Data 360 unify data from this system without ETL (zero-copy)?',
-    hint: 'Data Cloud One supports zero-copy federation from SAP, Snowflake, and other enterprise sources — no pipeline required.',
+    q: 'Is this capability provisioned in DISW orgs or only contractually available at enterprise level?',
+    hint: '"In agreement" does not automatically mean "activated in org." Confirm activation ownership with Siemens IT/Procurement.',
   },
   {
-    q: 'Can MuleSoft connect it as an agent action rather than a point-to-point API?',
-    hint: 'MuleSoft (core integration, API management, and connectors) is covered in the Siemens SELA. Note: MuleSoft Agentforce Fabric — which converts APIs into agent-invokable actions — went GA after July 31, 2025 and requires a separate addendum.',
+    q: 'Does execution depend on a separate agreement (for example Slack or Tableau)?',
+    hint: 'Some capabilities require separate commercial structures even when adjacent Salesforce components are in-scope.',
   },
   {
-    q: 'Does the Einstein Trust Layer provide governance that the custom tool lacks?',
-    hint: 'Zero data retention, PII masking, prompt/response audit logging, and EU AI Act compliance — out of the box.',
+    q: 'What is the correct architecture for activation (home org vs companion org, Data Cloud, MuleSoft, trust controls)?',
+    hint: 'Document architecture decisions explicitly so execution sequencing and governance remain clear.',
   },
 ];
 
@@ -76,11 +76,11 @@ export default function PlatformFramework() {
         <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
           <p className="text-lg font-semibold text-foreground mb-2">The key reframe</p>
           <p className="text-muted-foreground leading-relaxed text-lg">
-            Salesforce is not a CRM. It is an enterprise platform with three distinct layers — and DISW needs fluency in all three to consolidate shadow IT effectively and position IT as a value center, not a gatekeeper.
+            Salesforce is not a CRM. It is an enterprise platform with three distinct layers — and DISW needs fluency in all three to map contractual access to operational activation.
           </p>
           <div className="mt-4 pt-4 border-t border-primary/20">
             <p className="text-sm text-muted-foreground">
-              Shadow IT exists because the business couldn't see Layer 2 and Layer 3. IT's role is to make those layers <span className="text-primary font-semibold">visible, governed, and accessible</span> to the business — not to block them.
+              The execution priority is to make Layer 2 and Layer 3 capabilities <span className="text-primary font-semibold">visible, governed, and activated</span> with a clear agreement path and provisioning owner.
             </p>
           </div>
         </section>
@@ -132,16 +132,16 @@ export default function PlatformFramework() {
           </div>
         </section>
 
-        {/* Shadow IT Consolidation Lens */}
+        {/* Access Validation Lens */}
         <section>
           <h2 className="text-2xl font-semibold mb-2 text-foreground border-b border-border pb-2">
-            The Shadow IT Consolidation Lens
+            The Access Validation & Activation Lens
           </h2>
           <p className="text-muted-foreground mb-8 leading-relaxed">
-            For each business-initiated tool DISW has acquired outside IT governance, apply these four questions. This is how IT becomes the consolidation engine — not by saying "no," but by showing a better answer already licensed in the SELA.
+            For each high-priority capability, apply these four questions to confirm agreement path, provisioning status, and activation architecture before execution sequencing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {shadowItQuestions.map((item, i) => (
+            {accessValidationQuestions.map((item, i) => (
               <div key={i} className="bg-card border border-border rounded-lg p-6 flex flex-col gap-3 hover:border-primary/40 transition-colors">
                 <div className="flex gap-3 items-start">
                   <span className="text-primary font-mono text-sm border border-primary/30 rounded px-1.5 py-0.5 flex-shrink-0 mt-0.5">
@@ -168,7 +168,7 @@ export default function PlatformFramework() {
               The three-layer framework gives Tara's team a governance architecture, not just a feature list. The question is not "which clouds does DISW have?" but "which layers does DISW have the architecture and team to actually operate?"
             </p>
             <p>
-              The answer to shadow IT is Layer 2 visibility and Layer 3 governance — both of which are fully licensed in the Siemens SELA and ready to deploy.
+              The execution answer is Layer 2 visibility and Layer 3 governance — paired with explicit agreement mapping and org-level activation ownership.
             </p>
           </div>
         </section>

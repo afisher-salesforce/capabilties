@@ -10,7 +10,7 @@ const tier1 = [
   },
   {
     cap: 'Data 360 (Data Cloud One)',
-    why: 'Unified customer profile, RAG grounding for agents, zero-copy from SAP/Snowflake. The AI context fabric. Already licensed in the Siemens SELA.',
+    why: 'Unified customer profile, RAG grounding for agents, zero-copy from SAP/Snowflake. The AI context fabric. Access is tied to Siemens AG amendment #02536312.1.',
     session: 'Session 5058: Scale B2B Commerce Globally with Headless and Data 360',
   },
   {
@@ -25,7 +25,7 @@ const tier1 = [
   },
   {
     cap: 'MuleSoft Agentforce Fabric',
-    why: 'Converts existing MuleSoft APIs into agent-invokable actions — the integration nervous system for multi-agent workflows connecting SAP, external APIs, and enterprise systems. Note: MuleSoft core is in the Siemens SELA; Agentforce Fabric specifically went GA after July 31, 2025 and requires a separate addendum.',
+    why: 'Converts existing MuleSoft APIs into agent-invokable actions — the integration nervous system for multi-agent workflows connecting SAP, external APIs, and enterprise systems. Access aligns to Siemens Corporation MuleSoft amendment #02565632.1.',
     session: 'Session 4142: Agentic Architecture',
   },
 ];
@@ -38,7 +38,7 @@ const tier2 = [
   },
   {
     cap: 'Slack Enterprise Grid + Agentforce in Slack',
-    why: 'The IT consolidation play — Agentforce agents deployed in the collaboration surface where work happens. Change management framing for Patrick & Tara\'s org.',
+    why: 'Collaboration operating model for Agentforce in the workflow surface where teams execute. Requires separate Slack commercial coverage.',
     session: 'Session: Boosting Productivity with the Siemens Employee Agent',
   },
   {
@@ -123,6 +123,9 @@ export default function Dreamforce() {
         <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
           <p className="text-muted-foreground leading-relaxed">
             DISW has <span className="text-foreground font-semibold">12 registered attendees at Dreamforce '26</span>, including Tara Jiranek. The sessions below are the highest-signal capabilities for Tara's team to understand <em>before</em> arriving — so they can engage the content and speakers with context, not just as passive observers.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mt-3">
+            Session preparation should include commercial context: what is available via main SELA, what depends on amendments, and what requires separate agreements (for example Slack and Tableau).
           </p>
         </section>
 

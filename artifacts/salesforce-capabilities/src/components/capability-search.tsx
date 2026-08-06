@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { useLocation } from 'wouter';
 import { Search, X } from 'lucide-react';
-import { domainsData } from '@/data/capabilities';
+import { domainsData, getAccessStatusLabel, resolveCapabilityAccessStatus, type AccessStatus } from '@/data/capabilities';
 
 interface Result {
   code: string;
   name: string;
   description: string;
-  inSela: boolean;
+  accessStatus: AccessStatus;
   location: string;
   pageTitle: string;
   pageHref: string;
@@ -21,7 +21,7 @@ const allCapabilities: Result[] = domainsData.flatMap((domain) =>
     code: cap.code,
     name: cap.name,
     description: cap.description,
-    inSela: cap.inSela,
+    accessStatus: resolveCapabilityAccessStatus(domain.id, cap),
     location: `${domain.name} Domain`,
     pageTitle: `${domain.name} Domain`,
     pageHref: `/capabilities/${domain.id}`,
@@ -192,11 +192,13 @@ export default function CapabilitySearch({ onNavigate }: { onNavigate?: () => vo
                           {highlight(result.name, query)}
                         </span>
                       </div>
-                      {result.inSela && (
-                        <span className="flex-shrink-0 text-[10px] font-bold text-[#40e0d0] border border-primary/40 rounded-full px-1.5 py-0.5 bg-[rgba(0,180,180,0.1)]">
-                          SELA
-                        </span>
-                      )}
+                      <span className={`flex-shrink-0 text-[10px] font-bold rounded-full px-1.5 py-0.5 border ${
+                        result.accessStatus === 'not-available'
+                          ? 'text-muted-foreground border-border bg-background'
+                          : 'text-[#40e0d0] border-primary/40 bg-[rgba(0,180,180,0.1)]'
+                      }`}>
+                        {getAccessStatusLabel(result.accessStatus)}
+                      </span>
                     </div>
                     <div className="flex items-center gap-1.5 mt-0.5">
                       <span className="text-[11px] text-muted-foreground/70">{result.location}</span>

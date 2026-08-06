@@ -31,10 +31,10 @@ export default function ExecutiveSummary() {
         <section>
           <h2 className="text-2xl font-semibold mb-4 text-foreground border-b border-border pb-2">Purpose of This Discussion</h2>
           <p className="text-muted-foreground leading-relaxed text-lg mb-4">
-            This site is the reference guide for an executive-level discussion with Siemens Digital Industries Software (DISW) about their Salesforce platform capabilities — specifically those licensed under their Salesforce Enterprise License Agreement (SELA). It is prepared for <span className="text-foreground font-semibold">Tara Jiranek, Head of IT Transformation</span>, in support of her IT-as-a-value-center mandate, DISW's consolidation of shadow IT back under IT governance, and the platform opportunities ahead at Dreamforce '26.
+            This site is the reference guide for an executive-level discussion with Siemens Digital Industries Software (DISW) about Salesforce platform access and capability activation. It is prepared for <span className="text-foreground font-semibold">Tara Jiranek, Head of IT Transformation</span> and aligns to the contractual structure that governs DISW access through Siemens Corporation and Siemens AG agreements.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            The goal is to align Salesforce resources with DISW's strategic priorities, surface underutilized licensed capabilities, and identify the path to value across the full Salesforce platform. This document also applies to the Aug 12 DISW IT Leadership Session.
+            The goal is to align Salesforce resources with DISW's strategic priorities, clarify what is available directly versus via amendment or separate agreement, and identify the path to activation across DISW orgs. This document also applies to the Aug 12 DISW IT Leadership Session.
           </p>
         </section>
 
@@ -50,14 +50,15 @@ export default function ExecutiveSummary() {
               </div>
               <div>
                 <div className="text-sm text-muted-foreground mb-1">Term</div>
-                <div className="font-medium text-foreground">March 1, 2025 → September 30, 2028</div>
+                <div className="font-medium text-foreground">October 1, 2024 → September 30, 2028 (Main SELA)</div>
+                <div className="text-sm text-muted-foreground mt-1">Agentforce/Data Cloud amendment effective March 2025; MuleSoft amendment effective January 2025.</div>
               </div>
             </div>
             
             <div className="pt-4 border-t border-border">
               <div className="text-sm text-muted-foreground mb-1">GA Coverage Rule</div>
-              <div className="font-medium text-foreground">All Salesforce GA products as of July 31, 2025 are included.</div>
-              <div className="text-sm text-muted-foreground mt-1">Products that went GA after that date require a separate addendum.</div>
+              <div className="font-medium text-foreground">Main SELA covers Salesforce GA products as of October 1, 2024.</div>
+              <div className="text-sm text-muted-foreground mt-1">Post-date GA products and separate product families (for example Tableau and Slack) require separate agreements or addenda.</div>
             </div>
             
             <div className="pt-4 border-t border-border bg-[rgba(0,180,180,0.05)] -mx-6 -mb-6 p-6 rounded-b-lg border-primary/20">
@@ -185,22 +186,16 @@ export default function ExecutiveSummary() {
                 note: 'Published Salesforce customer story.',
               },
               {
-                org: 'Siemens Energy Gas Services',
-                product: 'Agentforce Service Agent',
-                metrics: ['Live in production since January 2026', 'Customer technical support automation'],
-                note: 'Proven production deployment — not a pilot.',
-              },
-              {
                 org: 'Siemens AG / SiePortal',
                 product: 'Headless 360 Commerce on Agentforce',
                 metrics: ['1.3M customers', '70+ regions', 'Largest B2B Salesforce Commerce implementation ever'],
                 note: 'Speaking at Dreamforce — Session 5058.',
               },
               {
-                org: 'Siemens Energy — Berlin Hackathon',
-                product: '3-Day Agentforce POC Sprint',
-                metrics: ['45 participants', '3 POCs built', '$5M+ combined estimated business value'],
-                note: 'Focus areas: Customer Self-Service, Human Agent Augmentation, Customer 360.',
+                org: 'Siemens EDA',
+                product: 'Connected Customer Vision + Signature Success Motion',
+                metrics: ['Signature Success launched July 2026', 'ARM evaluation in progress', 'ASLM and Manufacturing Cloud fit validated'],
+                note: 'Relevant comparator for DISW execution planning.',
               },
             ].map((p, i) => (
               <div key={i} className="bg-card border border-border rounded-lg p-5 hover:border-primary/40 transition-colors">
@@ -236,15 +231,14 @@ export default function ExecutiveSummary() {
               <tbody className="divide-y divide-border">
                 {[
                   ["Agentforce (External Users)", "Agentforce for Experience Cloud (A4X)", "Per-user add-on, not in SELA"],
-                   ["Integration", "MuleSoft Agentforce Fabric", "New capability — went GA after July 31, 2025, requires separate addendum"],
+                  ["Analytics", "Tableau (all SKUs)", "Excluded from SELA; separate Tableau agreement required"],
                   ["Analytics", "Tableau Pulse / Proactive Insights", "Separate SKU beyond Tableau Plus"],
                   ["Analytics", "Agentforce for Tableau (agentic BI queries)", "Requires additional add-on"],
                   ["Marketing", "Marketing Cloud Engagement (Email/Journey)", "Not confirmed in current contract"],
                   ["Marketing", "All Marketing AI features", "Requires MC Engagement"],
-                  ["Marketing", "Account Engagement / Pardot", "Not confirmed"],
-                  ["Platform", "Professional Services / Signature Success", "Explicitly excluded from SELA swap mechanics"],
+                  ["Platform", "Slack (all tiers)", "Explicitly excluded from SELA; separate Slack agreement required"],
                   ["Platform", "Salesforce Shield / Security Add-ons", "Derivative/percentage-based — excluded by contract"],
-                  ["Platform", "Products that went GA after July 31, 2025", "Require addendum"]
+                  ["Platform", "Products that went GA after October 1, 2024", "Require separate addendum"]
                 ].map((row, i) => (
                   <tr key={i} className="bg-background hover:bg-card/50 transition-colors">
                     <td className="px-6 py-4 font-medium text-foreground whitespace-nowrap">{row[0]}</td>
