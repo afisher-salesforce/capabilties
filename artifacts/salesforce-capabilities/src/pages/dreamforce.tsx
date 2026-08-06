@@ -14,7 +14,7 @@ const tier1 = [
     session: 'Session 5058: Scale B2B Commerce Globally with Headless and Data 360',
   },
   {
-    cap: 'Einstein Trust Layer',
+    cap: 'Atlas Trust Layer',
     why: 'Zero data retention, PII masking, audit logging for every AI interaction. Required for EU AI Act compliance and Siemens\' global data governance obligations.',
     session: 'Covered in all Agentforce architecture sessions',
   },

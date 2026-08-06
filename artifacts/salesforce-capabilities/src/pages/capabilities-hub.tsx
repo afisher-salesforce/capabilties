@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'wouter';
 import Layout from '@/components/layout';
-import { domainsData, resolveCapabilityAccessStatus } from '@/data/capabilities';
+import { domainsData, isLicensedAccessStatus, resolveCapabilityAccessStatus } from '@/data/capabilities';
 import { ArrowRight } from 'lucide-react';
 import PageFlowNav from '@/components/page-flow-nav';
 
 export default function CapabilitiesHub() {
   const totalCapabilities = domainsData.reduce((acc, domain) => acc + domain.capabilities.length, 0);
-  const accessibleCapabilities = domainsData.reduce((acc, domain) =>
-    acc + domain.capabilities.filter(c => resolveCapabilityAccessStatus(domain.id, c) !== 'not-available').length, 0
+  const licensedCapabilities = domainsData.reduce((acc, domain) =>
+    acc + domain.capabilities.filter(c => isLicensedAccessStatus(resolveCapabilityAccessStatus(domain.id, c))).length, 0
   );
 
   return (
@@ -28,14 +28,14 @@ export default function CapabilitiesHub() {
           {/* Summary SELA Bar */}
           <div className="bg-background border border-primary/30 rounded-lg p-4 flex items-center gap-6 shadow-sm">
             <div>
-              <div className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Agreement Coverage</div>
+              <div className="text-sm text-muted-foreground uppercase tracking-wider mb-1">Licensed Coverage</div>
               <div className="text-2xl font-bold text-foreground">
-                <span className="text-[#40e0d0]">{accessibleCapabilities}</span> <span className="text-muted-foreground text-lg font-normal">/ {totalCapabilities}</span>
+                <span className="text-[#40e0d0]">{licensedCapabilities}</span> <span className="text-muted-foreground text-lg font-normal">/ {totalCapabilities}</span>
               </div>
             </div>
             <div className="h-10 w-px bg-border"></div>
             <div className="text-sm text-muted-foreground max-w-[200px]">
-              Capabilities available via Siemens agreements (SELA + amendments + separate agreements).
+              Capabilities explicitly licensed through Siemens agreements (Main SELA + approved amendments).
             </div>
           </div>
         </div>
@@ -45,14 +45,14 @@ export default function CapabilitiesHub() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {domainsData.map((domain) => {
             const total = domain.capabilities.length;
-            const accessible = domain.capabilities.filter(c => resolveCapabilityAccessStatus(domain.id, c) !== 'not-available').length;
+            const licensed = domain.capabilities.filter(c => isLicensedAccessStatus(resolveCapabilityAccessStatus(domain.id, c))).length;
             
             return (
               <Link key={domain.id} href={`/capabilities/${domain.id}`} className="block group">
                 <div className="h-full bg-card border border-border rounded-xl p-6 transition-all duration-200 hover:border-primary/50 hover:shadow-md hover:bg-card/80 flex flex-col relative overflow-hidden">
                   
                   {/* Subtle top border highlight if it contains accessible items */}
-                  {accessible > 0 && (
+                  {licensed > 0 && (
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-[#40e0d0] opacity-70"></div>
                   )}
 
@@ -66,13 +66,13 @@ export default function CapabilitiesHub() {
                     <div className="bg-background rounded px-2.5 py-1 text-xs font-mono border border-border text-muted-foreground">
                       {total} Total
                     </div>
-                    {accessible > 0 ? (
+                    {licensed > 0 ? (
                       <div className="bg-[rgba(0,180,180,0.1)] rounded px-2.5 py-1 text-xs font-medium border border-primary/40 text-[#40e0d0]">
-                        {accessible} with Access
+                        {licensed} Licensed
                       </div>
                     ) : (
                       <div className="bg-background rounded px-2.5 py-1 text-xs font-medium border border-border text-muted-foreground/50">
-                        No Confirmed Access
+                        No Licensed Capabilities
                       </div>
                     )}
                   </div>

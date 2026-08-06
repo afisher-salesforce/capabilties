@@ -38,6 +38,10 @@ export function getAccessStatusLabel(status: AccessStatus): string {
   }
 }
 
+export function isLicensedAccessStatus(status: AccessStatus): boolean {
+  return status === 'main-sela' || status === 'agentforce-amendment' || status === 'mulesoft-amendment';
+}
+
 export const domainsData: Domain[] = [
   {
     id: 'analytics-reporting',
@@ -87,11 +91,11 @@ export const domainsData: Domain[] = [
   {
     id: 'data-ai',
     name: 'Data & AI',
-    description: 'The Salesforce AI platform core — Agentforce autonomous agents, Data Cloud unified profiles, Einstein Trust Layer governance, generative AI orchestration, and predictive scoring. All 9 capabilities are licensed in the Siemens SELA.',
+    description: 'The Salesforce AI platform core — Agentforce autonomous agents, Data Cloud unified profiles, Atlas Trust Layer governance, generative AI orchestration, and predictive scoring. All 9 capabilities are licensed through Siemens agreements.',
     capabilities: [
       { code: 'DAG', name: 'Agentic AI / Autonomous Agents', inSela: true, source: 'Expert Addition', description: 'Deployment and governance of autonomous AI agents that can reason, plan multi-step actions, invoke external tools and APIs, and hand off to humans — the Agentforce core motion. Distinct from copilot/assist patterns.' },
       { code: 'DDH', name: 'Data Harmonization', inSela: true, source: 'Expert Addition', description: 'Processing and mapping of structured and unstructured data from external systems into a standardized data model (e.g., Data Cloud) for analytics and activation.' },
-      { code: 'DEL', name: 'Einstein Trust Layer', inSela: true, source: 'Expert Addition', description: 'Governance layer for all AI interactions: zero data retention, PII masking, prompt/response audit logging, toxicity detection, and data grounding — the enterprise trust wrapper required for regulated and global deployments.' },
+      { code: 'DEL', name: 'Atlas Trust Layer', inSela: true, source: 'Expert Addition', description: 'Governance layer for all AI interactions: zero data retention, PII masking, prompt/response audit logging, toxicity detection, and data grounding — the enterprise trust wrapper required for regulated and global deployments.' },
       { code: 'DFC', name: 'Flex Credit & AI Consumption Management', inSela: true, source: 'Expert Addition', description: 'Management and metering of consumption-based AI and Data Cloud credits across business units, subsidiaries, and use cases — critical for SELA and large multi-org enterprise deployments.' },
       { code: 'DGA', name: 'Generative AI Orchestration', inSela: true, source: 'Expert Addition', description: 'Management of AI models, prompt templates, and autonomous agent actions to orchestrate generative AI seamlessly and securely into workflows.' },
       { code: 'DIR', name: 'Identity Resolution', inSela: true, source: 'Expert Addition', description: 'Creation of unified customer profiles from disparate data sources and matching rules to build a single source of truth for the customer.' },

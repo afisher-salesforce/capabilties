@@ -30,7 +30,7 @@ const layers = [
     color: 'rgba(0,100,150,0.15)',
     borderColor: 'rgba(0,150,200,0.4)',
     textColor: 'hsl(200 80% 60%)',
-    products: ['Data 360 (Data Cloud One)', 'MuleSoft (Integration, API Mgmt, Connectors)', 'Headless 360 / MCP', 'Einstein Trust Layer', 'Shield (Security)'],
+    products: ['Data 360 (Data Cloud One)', 'MuleSoft (Integration, API Mgmt, Connectors)', 'Headless 360 / MCP', 'Atlas Trust Layer', 'Shield (Security)'],
     description: 'The foundational infrastructure that unifies data, governs AI interactions, connects enterprise systems, and exposes Salesforce as an API surface for any channel. Without this layer, Layers 1 and 2 operate in silos.',
   },
 ];
