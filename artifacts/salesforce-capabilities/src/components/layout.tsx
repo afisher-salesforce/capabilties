@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { domainsData } from '@/data/capabilities';
 import CapabilitySearch from '@/components/capability-search';
 import { capabilitiesGroupMeta, primaryNavItems } from '@/config/site-navigation';
@@ -32,13 +32,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const capabilitiesIndex = primaryNavItems.findIndex((item) => item.href === '/capabilities');
   const navBeforeCapabilities = primaryNavItems.slice(0, capabilitiesIndex);
   const navAfterCapabilities = primaryNavItems.slice(capabilitiesIndex + 1);
+  const navToggleLabel = isNavCollapsed ? 'Show Navigation' : 'Hide Navigation';
+  const navTogglePositionClass = isNavCollapsed ? 'left-4' : 'left-4 md:left-[19.25rem]';
+  const mobileToggleLabel = isMobileMenuOpen ? 'Close Navigation' : 'Show Navigation';
 
   return (
     <div className="min-h-[100dvh] flex flex-col md:flex-row bg-background text-foreground">
       <button
         type="button"
-        aria-label={isNavCollapsed ? 'Show navigation' : 'Hide navigation'}
-        className="fixed top-4 left-4 z-50 h-10 w-10 rounded-md border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors flex items-center justify-center"
+        aria-label={navToggleLabel}
+        className={`fixed top-4 z-50 rounded-md border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors flex items-center justify-center px-3 py-1.5 text-xs font-semibold shadow-sm ${
+          navTogglePositionClass
+        }`}
         onClick={() => {
           if (window.innerWidth < 768) {
             setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -47,7 +52,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           setIsNavCollapsed(!isNavCollapsed);
         }}
       >
-        {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+        <span className="md:hidden">{mobileToggleLabel}</span>
+        <span className="hidden md:inline">{navToggleLabel}</span>
       </button>
 
       {/* Mobile Header */}

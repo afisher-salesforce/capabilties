@@ -17,3 +17,4 @@ This project reuses structural guidance from the global Cursor skills library, s
 
 - This site keeps the current visual navigation system (icons plus highlighted active item styling).
 - Forward Looking Statements uses a legal-style icon and sits at the end of the main page flow.
+- Nav toggle placement follows the Siemens EDA standard: desktop uses a text `Show Navigation` / `Hide Navigation` button at the sidebar edge (never over the company name), while mobile retains a compact menu toggle behavior.
