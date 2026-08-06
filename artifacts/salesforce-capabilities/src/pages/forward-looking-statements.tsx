@@ -35,11 +35,8 @@ export default function ForwardLookingStatements() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-5 text-foreground border-b border-border pb-2">
-            Verbatim Forward Looking Statement
+            Forward Looking Statements
           </h2>
-          <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
-            Legal wording shown in full; do not paraphrase.
-          </p>
           <div className="max-w-3xl bg-card border border-border rounded-xl p-6 md:p-8 space-y-6">
             {VERBATIM_FORWARD_LOOKING_STATEMENT.map((statement, index) => (
               <p key={index} className="text-muted-foreground leading-8">
