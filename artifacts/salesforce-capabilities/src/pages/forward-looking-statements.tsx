@@ -40,16 +40,11 @@ export default function ForwardLookingStatements() {
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-4">
             Legal wording shown in full; do not paraphrase.
           </p>
-          <div className="space-y-4 max-w-3xl">
+          <div className="max-w-3xl bg-card border border-border rounded-xl p-6 md:p-8 space-y-6">
             {VERBATIM_FORWARD_LOOKING_STATEMENT.map((statement, index) => (
-              <div key={statement} className="bg-card border border-border rounded-lg p-5">
-                <div className="flex gap-3 items-start">
-                  <span className="text-primary font-mono text-xs border border-primary/30 rounded px-1.5 py-0.5 mt-0.5">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <p className="text-muted-foreground leading-8">{statement}</p>
-                </div>
-              </div>
+              <p key={index} className="text-muted-foreground leading-8">
+                {statement}
+              </p>
             ))}
           </div>
         </section>
