@@ -7,6 +7,23 @@ export interface Capability {
   description: string;
 }
 
+export type TrainingAudience = 'Executive' | 'Administrator' | 'Architect' | 'Developer';
+export type TrainingLevel = 'Foundational' | 'Intermediate' | 'Advanced';
+export type TrailheadContentType = 'TRAIL' | 'MODULE' | 'PROJECT';
+
+export interface TrainingRecommendation {
+  title: string;
+  apiName: string;
+  type: TrailheadContentType;
+  audience: TrainingAudience;
+  level: TrainingLevel;
+  timeMinutes: number;
+  whyItMatters: string;
+  url: string;
+  source: 'trailhead-mcp';
+  lastVerifiedAt: string;
+}
+
 export type AccessStatus =
   | 'main-sela'
   | 'agentforce-amendment'
@@ -40,6 +57,250 @@ export function getAccessStatusLabel(status: AccessStatus): string {
 
 export function isLicensedAccessStatus(status: AccessStatus): boolean {
   return status === 'main-sela' || status === 'agentforce-amendment' || status === 'mulesoft-amendment';
+}
+
+const TRAILHEAD_VERIFIED_DATE = '2026-08-07';
+
+const TRAILHEAD_DATA_AI_RECOMMENDATIONS: Record<string, TrainingRecommendation[]> = {
+  DAG: [
+    {
+      title: 'Build an AI Agent with Agentforce',
+      apiName: 'build-ai-assistants-with-einstein-copilot',
+      type: 'TRAIL',
+      audience: 'Developer',
+      level: 'Foundational',
+      timeMinutes: 140,
+      whyItMatters: 'Gives the team a practical build path for agent setup, testing, and runtime behavior.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-ai-assistants-with-einstein-copilot',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Build with Agentforce for Service',
+      apiName: 'build-with-agentforce-for-service',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Intermediate',
+      timeMinutes: 479,
+      whyItMatters: 'Shows enterprise deployment patterns for service-oriented agent motions and governance.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-with-agentforce-for-service',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DDH: [
+    {
+      title: 'Unlock Your Data with Data Cloud',
+      apiName: 'unlock-your-data-with-data-cloud',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Foundational',
+      timeMinutes: 606,
+      whyItMatters: 'Covers ingestion and harmonization patterns required to activate enterprise data at scale.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/unlock-your-data-with-data-cloud',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Model Data in Data 360',
+      apiName: 'model-data-in-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 50,
+      whyItMatters: 'Provides concise training on modeling and mapping data for harmonized customer records.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/model-data-in-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DEL: [
+    {
+      title: 'Build with Agentforce for Service',
+      apiName: 'build-with-agentforce-for-service',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Intermediate',
+      timeMinutes: 479,
+      whyItMatters: 'Includes the trust and governance model needed for safe enterprise AI deployment.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-with-agentforce-for-service',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Administer Data 360',
+      apiName: 'administer-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 110,
+      whyItMatters: 'Builds operational control over data governance and activation controls.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/administer-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DFC: [
+    {
+      title: 'Administer Data 360',
+      apiName: 'administer-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 110,
+      whyItMatters: 'Helps operations teams manage shared consumption and activation settings effectively.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/administer-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Unlock Your Data with Data Cloud',
+      apiName: 'unlock-your-data-with-data-cloud',
+      type: 'TRAIL',
+      audience: 'Executive',
+      level: 'Foundational',
+      timeMinutes: 606,
+      whyItMatters: 'Creates executive context for value realization and resource planning in a consumption model.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/unlock-your-data-with-data-cloud',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DGA: [
+    {
+      title: 'Build an AI Agent with Agentforce',
+      apiName: 'build-ai-assistants-with-einstein-copilot',
+      type: 'TRAIL',
+      audience: 'Developer',
+      level: 'Foundational',
+      timeMinutes: 140,
+      whyItMatters: 'Provides practical orchestration patterns for prompts, actions, and response handling.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-ai-assistants-with-einstein-copilot',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Build with Agentforce for Service',
+      apiName: 'build-with-agentforce-for-service',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Intermediate',
+      timeMinutes: 479,
+      whyItMatters: 'Supports scalable orchestration design choices across service and cross-functional workflows.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-with-agentforce-for-service',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DIR: [
+    {
+      title: 'Model Data in Data 360',
+      apiName: 'model-data-in-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 50,
+      whyItMatters: 'Builds identity and model fundamentals required for dependable profile resolution.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/model-data-in-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Unlock Your Data with Data Cloud',
+      apiName: 'unlock-your-data-with-data-cloud',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Foundational',
+      timeMinutes: 606,
+      whyItMatters: 'Covers enterprise identity and ingestion strategies needed for unified profiles.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/unlock-your-data-with-data-cloud',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DPA: [
+    {
+      title: 'Use Data Insights Across Salesforce',
+      apiName: 'use-data-insights-across-cloud',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 50,
+      whyItMatters: 'Demonstrates how predictive insights are operationalized in frontline workflows.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/use-data-insights-across-cloud',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Unlock Your Data with Data Cloud',
+      apiName: 'unlock-your-data-with-data-cloud',
+      type: 'TRAIL',
+      audience: 'Architect',
+      level: 'Intermediate',
+      timeMinutes: 606,
+      whyItMatters: 'Provides the analytics and data foundation needed for enterprise-grade scoring and forecasting.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/unlock-your-data-with-data-cloud',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DUP: [
+    {
+      title: 'Model Data in Data 360',
+      apiName: 'model-data-in-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Foundational',
+      timeMinutes: 50,
+      whyItMatters: 'Helps teams model profile entities correctly so activation and segmentation remain trustworthy.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/model-data-in-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Administer Data 360',
+      apiName: 'administer-customer-data-platform',
+      type: 'TRAIL',
+      audience: 'Administrator',
+      level: 'Intermediate',
+      timeMinutes: 110,
+      whyItMatters: 'Provides operational guidance for maintaining high-quality unified profile systems.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/administer-customer-data-platform',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+  DVS: [
+    {
+      title: 'Build with Agentforce for Service',
+      apiName: 'build-with-agentforce-for-service',
+      type: 'TRAIL',
+      audience: 'Developer',
+      level: 'Intermediate',
+      timeMinutes: 479,
+      whyItMatters: 'Shows how grounded retrieval improves response quality and trust in agent outputs.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-with-agentforce-for-service',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+    {
+      title: 'Build an AI Agent with Agentforce',
+      apiName: 'build-ai-assistants-with-einstein-copilot',
+      type: 'TRAIL',
+      audience: 'Developer',
+      level: 'Foundational',
+      timeMinutes: 140,
+      whyItMatters: 'Provides hands-on experience for building retrieval-aware conversational agent behavior.',
+      url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-ai-assistants-with-einstein-copilot',
+      source: 'trailhead-mcp',
+      lastVerifiedAt: TRAILHEAD_VERIFIED_DATE,
+    },
+  ],
+};
+
+export function getCapabilityTrainingRecommendations(domainId: string, capabilityCode: string): TrainingRecommendation[] {
+  if (domainId !== 'data-ai') return [];
+  return TRAILHEAD_DATA_AI_RECOMMENDATIONS[capabilityCode] ?? [];
 }
 
 export const domainsData: Domain[] = [
