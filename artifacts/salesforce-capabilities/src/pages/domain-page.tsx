@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import { useRoute } from 'wouter';
 import Layout from '@/components/layout';
-import { domainsData, getAccessStatusLabel, isLicensedAccessStatus, resolveCapabilityAccessStatus } from '@/data/capabilities';
+import {
+  domainsData,
+  getAccessStatusLabel,
+  getCapabilityTrainingRecommendations,
+  isLicensedAccessStatus,
+  resolveCapabilityAccessStatus,
+} from '@/data/capabilities';
 import NotFound from './not-found';
 
 export default function DomainPage() {
@@ -32,6 +38,14 @@ export default function DomainPage() {
 
   const licensedCount = domain.capabilities.filter(c => isLicensedAccessStatus(resolveCapabilityAccessStatus(domain.id, c))).length;
 
+  const formatLearningTime = (minutes: number) => {
+    if (minutes >= 60) {
+      const hours = Math.round((minutes / 60) * 10) / 10;
+      return `${hours}h`;
+    }
+    return `${minutes}m`;
+  };
+
   return (
     <Layout>
       <div className="bg-card border-b border-border py-10 px-8 md:px-12 relative overflow-hidden">
@@ -60,6 +74,7 @@ export default function DomainPage() {
           {domain.capabilities.map((cap) => {
             const accessStatus = resolveCapabilityAccessStatus(domain.id, cap);
             const isLicensed = isLicensedAccessStatus(accessStatus);
+            const trainingRecommendations = getCapabilityTrainingRecommendations(domain.id, cap.code);
             return (
             <div
               key={cap.code}
@@ -89,6 +104,47 @@ export default function DomainPage() {
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                 {cap.description}
               </p>
+
+              {trainingRecommendations.length > 0 && (
+                <div className="mb-6 rounded-lg border border-primary/20 bg-[rgba(0,180,180,0.05)] p-4 space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs uppercase tracking-widest font-semibold text-primary">Training Recommendations</p>
+                    <p className="text-xs text-muted-foreground">
+                      {trainingRecommendations.length} path{trainingRecommendations.length !== 1 ? 's' : ''} curated
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    {trainingRecommendations.map((rec) => (
+                      <a
+                        key={rec.apiName}
+                        href={rec.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block rounded-md border border-border bg-card p-3 hover:border-primary/40 transition-colors"
+                      >
+                        <div className="flex items-center flex-wrap gap-2 mb-1.5">
+                          <p className="text-sm font-semibold text-foreground">{rec.title}</p>
+                          <span className="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded border border-border text-muted-foreground">
+                            {rec.type}
+                          </span>
+                        </div>
+                        <div className="flex flex-wrap gap-2 mb-1.5">
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">
+                            {rec.audience}
+                          </span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">
+                            {rec.level}
+                          </span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">
+                            {formatLearningTime(rec.timeMinutes)}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground">{rec.whyItMatters}</p>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
               
               <div className="mt-auto pt-4 border-t border-border flex justify-between items-center text-xs">
                 <span className="text-muted-foreground/60">Source</span>
