@@ -63,6 +63,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="p-6 border-b border-border hidden md:block">
           <h1 className="text-xl font-bold tracking-tight text-foreground">Siemens DISW</h1>
           <p className="text-xs text-muted-foreground mt-1">Salesforce Capabilities Discussion</p>
+          <img
+            src="/salesforce-logo-v2.jpg"
+            alt="Salesforce"
+            className="mt-5 block w-full max-w-[170px] h-auto"
+          />
         </div>
 
         <div className="px-4 pt-4">
@@ -166,14 +171,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </nav>
 
-        <div className="p-4 border-t border-border">
-          <p className="text-[10px] uppercase tracking-wide text-muted-foreground mb-2">Powered by</p>
-          <img
-            src="/salesforce-logo-v2.jpg"
-            alt="Salesforce"
-            className="block w-full max-w-[170px] h-auto mx-auto"
-          />
-        </div>
       </aside>
 
       {/* Main Content */}
