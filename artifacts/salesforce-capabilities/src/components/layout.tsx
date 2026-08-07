@@ -66,7 +66,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <img
             src="/salesforce-logo-v2.jpg"
             alt="Salesforce"
-            className="mt-5 block w-full max-w-[170px] h-auto"
+            className="mt-5 block h-10 w-auto"
           />
         </div>
 
