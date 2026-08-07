@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/layout';
 import PageFlowNav from '@/components/page-flow-nav';
+import type { TrainingRecommendation } from '@/data/capabilities';
 
 const tier1 = [
   {
@@ -87,6 +88,53 @@ const attendees = [
   { name: 'Lane Giles', title: 'Customer Support', sessions: 'Agentforce for Service; Einstein Conversation Insights' },
   { name: 'Susan Kacapyr', title: 'Senior Manager, IT Applications Development', sessions: 'Vibe Coding; Agent Builder' },
 ];
+
+const dreamforceTrainingRecommendations: TrainingRecommendation[] = [
+  {
+    title: 'Build an AI Agent with Agentforce',
+    apiName: 'build-ai-assistants-with-einstein-copilot',
+    type: 'TRAIL',
+    audience: 'Developer',
+    level: 'Foundational',
+    timeMinutes: 140,
+    whyItMatters: 'Gives DF attendees a shared baseline for agent architecture, actions, and governance before event sessions.',
+    url: 'https://trailhead.salesforce.com/en/content/learn/trails/build-ai-assistants-with-einstein-copilot',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+  {
+    title: 'Unlock Your Data with Data Cloud',
+    apiName: 'unlock-your-data-with-data-cloud',
+    type: 'TRAIL',
+    audience: 'Architect',
+    level: 'Foundational',
+    timeMinutes: 606,
+    whyItMatters: 'Provides the Data 360 language required for practical conversations on Companion Org and governance decisions.',
+    url: 'https://trailhead.salesforce.com/en/content/learn/trails/unlock-your-data-with-data-cloud',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+  {
+    title: 'MuleSoft and API-Led Connectivity',
+    apiName: 'search-mulesoft-df-readiness',
+    type: 'MODULE',
+    audience: 'Architect',
+    level: 'Intermediate',
+    timeMinutes: 90,
+    whyItMatters: 'Prepares attendees for integration and orchestration topics tied to agent-invokable enterprise actions.',
+    url: 'https://trailhead.salesforce.com/search?keywords=MuleSoft%20API-led%20connectivity',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+];
+
+function formatLearningTime(minutes: number) {
+  if (minutes >= 60) {
+    const hours = Math.round((minutes / 60) * 10) / 10;
+    return `${hours}h`;
+  }
+  return `${minutes}m`;
+}
 
 function TierBadge({ tier }: { tier: string }) {
   const styles: Record<string, string> = {
@@ -221,6 +269,36 @@ export default function Dreamforce() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <h2 className="text-2xl font-semibold text-foreground">Trailhead Pre-Work for DF'26</h2>
+            <span className="text-xs text-muted-foreground">{dreamforceTrainingRecommendations.length} curated paths</span>
+          </div>
+          <p className="text-sm text-muted-foreground mb-5">
+            Recommended prep to help attendees arrive with shared vocabulary across Agentforce, Data 360, and integration architecture.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {dreamforceTrainingRecommendations.map((rec) => (
+              <a
+                key={rec.apiName}
+                href={rec.url}
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-lg border border-border bg-card p-4 hover:border-primary/40 transition-colors"
+              >
+                <p className="text-sm font-semibold text-foreground mb-2">{rec.title}</p>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  <span className="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded border border-border text-muted-foreground">{rec.type}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{rec.audience}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{rec.level}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{formatLearningTime(rec.timeMinutes)}</span>
+                </div>
+                <p className="text-xs text-muted-foreground">{rec.whyItMatters}</p>
+              </a>
+            ))}
           </div>
         </section>
 

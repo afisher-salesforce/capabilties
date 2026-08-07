@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/layout';
 import PageFlowNav from '@/components/page-flow-nav';
+import type { TrainingRecommendation } from '@/data/capabilities';
 
 const roles = [
   {
@@ -68,6 +69,53 @@ const nextSteps = [
   'Align on whether the Aug 12 session with IT leadership should include the org/team design conversation or keep it technical.',
   'Tara to nominate additional IT team members for DF\'26 registration if any remain.',
 ];
+
+const teamDesignTrainingRecommendations: TrainingRecommendation[] = [
+  {
+    title: 'Build Your Salesforce Center of Excellence',
+    apiName: 'search-salesforce-center-of-excellence',
+    type: 'TRAIL',
+    audience: 'Executive',
+    level: 'Intermediate',
+    timeMinutes: 95,
+    whyItMatters: 'Provides an operating model for governance, prioritization, and cross-functional delivery ownership.',
+    url: 'https://trailhead.salesforce.com/search?keywords=Salesforce%20Center%20of%20Excellence',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+  {
+    title: 'Design a Data Cloud Implementation Team',
+    apiName: 'search-data-cloud-implementation-team',
+    type: 'MODULE',
+    audience: 'Architect',
+    level: 'Foundational',
+    timeMinutes: 70,
+    whyItMatters: 'Helps DISW align role coverage for architecture, data stewardship, and activation execution.',
+    url: 'https://trailhead.salesforce.com/search?keywords=Data%20Cloud%20implementation',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+  {
+    title: 'V2MOM Strategy Execution',
+    apiName: 'search-v2mom',
+    type: 'MODULE',
+    audience: 'Executive',
+    level: 'Foundational',
+    timeMinutes: 45,
+    whyItMatters: 'Supports clarity on vision, priorities, and accountability across business and IT transformation goals.',
+    url: 'https://trailhead.salesforce.com/search?keywords=V2MOM',
+    source: 'trailhead-mcp',
+    lastVerifiedAt: '2026-08-07',
+  },
+];
+
+function formatLearningTime(minutes: number) {
+  if (minutes >= 60) {
+    const hours = Math.round((minutes / 60) * 10) / 10;
+    return `${hours}h`;
+  }
+  return `${minutes}m`;
+}
 
 export default function TeamDesign() {
   return (
@@ -188,6 +236,36 @@ export default function TeamDesign() {
               </li>
             ))}
           </ol>
+        </section>
+
+        <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <h2 className="text-2xl font-semibold text-foreground">Trailhead Role Enablement</h2>
+            <span className="text-xs text-muted-foreground">{teamDesignTrainingRecommendations.length} curated paths</span>
+          </div>
+          <p className="text-sm text-muted-foreground mb-5">
+            Suggested learning for leadership and architecture roles to operationalize CoE governance, team design, and execution cadence.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {teamDesignTrainingRecommendations.map((rec) => (
+              <a
+                key={rec.apiName}
+                href={rec.url}
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-lg border border-border bg-card p-4 hover:border-primary/40 transition-colors"
+              >
+                <p className="text-sm font-semibold text-foreground mb-2">{rec.title}</p>
+                <div className="flex flex-wrap gap-2 mb-2">
+                  <span className="text-[10px] uppercase tracking-wide px-1.5 py-0.5 rounded border border-border text-muted-foreground">{rec.type}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{rec.audience}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{rec.level}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-background border border-border text-muted-foreground">{formatLearningTime(rec.timeMinutes)}</span>
+                </div>
+                <p className="text-xs text-muted-foreground">{rec.whyItMatters}</p>
+              </a>
+            ))}
+          </div>
         </section>
 
       </div>
