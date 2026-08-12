@@ -52,8 +52,15 @@ function stripBase(path: string): string {
 // ── Domain restriction ──────────────────────────────────────────────────────
 const ALLOWED_DOMAINS = ['salesforce.com', 'siemens.com'];
 
+// Admin accounts that bypass domain restrictions unconditionally
+const ADMIN_EMAILS = new Set([
+  'afisher@salesforce.com',
+  'bill.schermer@salesforce.com',
+]);
+
 function isAllowedDomain(email: string): boolean {
-  return ALLOWED_DOMAINS.some((d) => email.toLowerCase().endsWith(`@${d}`));
+  const normalized = email.toLowerCase();
+  return ADMIN_EMAILS.has(normalized) || ALLOWED_DOMAINS.some((d) => normalized.endsWith(`@${d}`));
 }
 
 function DomainGate({ children }: { children: React.ReactNode }) {
