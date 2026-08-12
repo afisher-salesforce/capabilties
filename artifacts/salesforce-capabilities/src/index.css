@@ -1,5 +1,7 @@
+@layer theme, base, clerk, components, utilities;
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@clerk/themes/shadcn.css';
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
@@ -112,3 +114,6 @@
     @apply font-sans antialiased bg-background text-foreground;
   }
 }
+
+/* Clerk pseudo-state overrides — must be outside any @layer */
+.cl-formFieldInput::placeholder { color: #4a7a9b; opacity: 1; }
