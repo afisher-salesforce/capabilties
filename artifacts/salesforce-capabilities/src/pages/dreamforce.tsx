@@ -78,17 +78,6 @@ const tier3 = [
   },
 ];
 
-const attendees = [
-  { name: 'Tara Jiranek', title: 'Head of IT Transformation', sessions: 'Session 4142 — Agentic Architecture; Session 5058 — Headless + Data 360' },
-  { name: 'Patrick Sluck', title: 'Senior Leader, Salesforce Platform & Support Transformation', sessions: 'Session 3973 — Build Sales Agents; Session 3969 — CPQ with Agents' },
-  { name: 'Kristina Graham', title: 'Head of Salesforce Admin & Release Management', sessions: 'Agentforce for Admins; Observability' },
-  { name: 'Jon Peterson', title: 'Senior Director, Digital Commerce and Operations', sessions: 'Session 5058 — Commerce + Data 360' },
-  { name: 'Andrew Allan', title: 'CIO / Chief of Global Finance Operations & Technology', sessions: 'Exec Summit track' },
-  { name: 'Missy Moreland-Bowers', title: 'VP FINOps Strategy & Transformation', sessions: 'Revenue Intelligence; Analytics' },
-  { name: 'Lane Giles', title: 'Customer Support', sessions: 'Agentforce for Service; Einstein Conversation Insights' },
-  { name: 'Susan Kacapyr', title: 'Senior Manager, IT Applications Development', sessions: 'Vibe Coding; Agent Builder' },
-];
-
 const dreamforceTrainingRecommendations: TrainingRecommendation[] = [
   {
     title: 'Build an AI Agent with Agentforce',
@@ -148,8 +137,38 @@ function TierBadge({ tier }: { tier: string }) {
     </span>
   );
 }
-
+const dreamforceAttendees = [
+  { name: 'Tara Jiranek', title: 'Head of IT Transformation', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Patrick Sluck', title: 'Senior Leader, Salesforce Platform & Support Transformation Enterprise CRM Leadership', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Kristina Graham', title: 'Head of Salesforce Administration & Release Management', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Jon Peterson', title: 'Senior Director, Digital Commerce and Operations', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Andrew Allan', title: 'Chief Of Global Finance Operations & Technology', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Missy Moreland-Bowers', title: 'VP FINOps Strategy & Transformation', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Lane Giles', title: 'Customer Support', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Susan Kacapyr', title: 'Senior Manager - IT Applications Development', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Brian Johnsen', title: 'Senior Product Manager for Service Lifecycle Management', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Chirag Purohit', title: 'Director Global Sales Operations', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: "Debbie O'Leary", title: 'Senior IT Applications Analyst', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Frank Krickhahn', title: 'Lead Enterprise Architect CRM & eCommerce, Siemens AG GS IT', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Jessie Reyes', title: 'Developer', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Johanna Pouquet', title: 'Salesforce CRM Project Manager (Process Optimization)', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Michael Casey', title: 'Director - Physics', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Pavani Akella', title: 'Senior IT Application Analyst - Salesforce CRM', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Sean Killian', title: 'Business Operations Manager', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Shahar Tal', title: 'R&D Director', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Sharon Staunton', title: 'Head of Financial Ops and Strategy', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Yasmeen Fowler', title: 'Developer', account: 'Siemens Digital Industries Software (DISW)' },
+  { name: 'Amy Greenwald', title: 'Sales Coordinator Director', account: 'Siemens EDA (Mentor Graphics)' },
+  { name: 'Michelle Carruba', title: 'Senior Sales Automation Business Manager', account: 'Siemens EDA (Mentor Graphics)' },
+];
 export default function Dreamforce() {
+  const [attendeeFilter, setAttendeeFilter] = React.useState<'all' | 'disw' | 'eda'>('all');
+  const filteredAttendees = dreamforceAttendees.filter((attendee) => {
+    if (attendeeFilter === 'all') return true;
+    if (attendeeFilter === 'disw') return attendee.account.includes('DISW');
+    return attendee.account.includes('Siemens EDA');
+  });
+
   return (
     <Layout>
       <div className="bg-card border-b border-border py-10 px-8 md:px-12 relative overflow-hidden">
@@ -160,7 +179,7 @@ export default function Dreamforce() {
             Dreamforce '26 — Priority Capabilities
           </h1>
           <p className="text-xl text-primary font-medium">
-            What DISW's 12 registered attendees need to know before they arrive
+            What DISW and Siemens EDA's 22 registered attendees need to know before they arrive
           </p>
         </div>
       </div>
@@ -170,14 +189,76 @@ export default function Dreamforce() {
         {/* Context */}
         <section className="bg-[rgba(0,180,180,0.05)] border border-primary/30 rounded-xl p-6 md:p-8">
           <p className="text-muted-foreground leading-relaxed">
-            DISW has <span className="text-foreground font-semibold">12 registered attendees at Dreamforce '26</span>, including Tara Jiranek. The sessions below are the highest-signal capabilities for Tara's team to understand <em>before</em> arriving — so they can engage the content and speakers with context, not just as passive observers.
+            DISW and Siemens EDA have <span className="text-foreground font-semibold">22 registered attendees at Dreamforce '26</span> (20 from Siemens Digital Industries Software and 2 from Siemens EDA), including Tara Jiranek. The sessions below are the highest-signal capabilities for the joint team to understand <em>before</em> arriving — so they can engage the content and speakers with context, not just as passive observers.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-3">
             Session preparation should include commercial context: what is available via main SELA, what depends on amendments, and what requires separate agreements (for example Slack and Tableau).
           </p>
         </section>
-
-        {/* Tier 1 */}
+        <section className="bg-card border border-border rounded-xl p-6 md:p-8">
+          <h2 className="text-2xl font-semibold mb-3 text-foreground">Dreamforce '26 Registered Participants</h2>
+          <p className="text-muted-foreground leading-relaxed mb-5">
+            DISW and Siemens EDA have <span className="text-foreground font-semibold">22 registered attendees</span> for Dreamforce '26 (20 from Siemens Digital Industries Software and 2 from Siemens EDA), based on the updated registration tracker in your PDF.
+          </p>
+          <div className="flex flex-wrap gap-2 mb-5">
+            <button
+              type="button"
+              onClick={() => setAttendeeFilter('all')}
+              className={`px-3 py-1.5 rounded-full text-xs border transition-colors ${
+                attendeeFilter === 'all'
+                  ? 'bg-primary/20 text-primary border-primary/40'
+                  : 'bg-background text-muted-foreground border-border hover:border-primary/30'
+              }`}
+            >
+              All (22)
+            </button>
+            <button
+              type="button"
+              onClick={() => setAttendeeFilter('disw')}
+              className={`px-3 py-1.5 rounded-full text-xs border transition-colors ${
+                attendeeFilter === 'disw'
+                  ? 'bg-primary/20 text-primary border-primary/40'
+                  : 'bg-background text-muted-foreground border-border hover:border-primary/30'
+              }`}
+            >
+              DISW (20)
+            </button>
+            <button
+              type="button"
+              onClick={() => setAttendeeFilter('eda')}
+              className={`px-3 py-1.5 rounded-full text-xs border transition-colors ${
+                attendeeFilter === 'eda'
+                  ? 'bg-primary/20 text-primary border-primary/40'
+                  : 'bg-background text-muted-foreground border-border hover:border-primary/30'
+              }`}
+            >
+              Siemens EDA (2)
+            </button>
+          </div>
+          <p className="text-xs text-muted-foreground mb-4">
+            Showing <span className="text-foreground font-semibold">{filteredAttendees.length}</span> attendee{filteredAttendees.length !== 1 ? 's' : ''}
+          </p>
+          <div className="overflow-x-auto rounded-lg border border-border">
+            <table className="w-full text-sm text-left">
+              <thead className="text-xs text-muted-foreground uppercase bg-card/80 border-b border-border">
+                <tr>
+                  <th className="px-5 py-4">Name</th>
+                  <th className="px-5 py-4">Title</th>
+                  <th className="px-5 py-4">Account</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border">
+                {filteredAttendees.map((attendee) => (
+                  <tr key={attendee.name} className="bg-background hover:bg-card/50 transition-colors">
+                    <td className="px-5 py-4 font-semibold text-foreground whitespace-nowrap">{attendee.name}</td>
+                    <td className="px-5 py-4 text-muted-foreground">{attendee.title}</td>
+                    <td className="px-5 py-4 text-primary text-xs font-medium">{attendee.account}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
         <section>
           <div className="flex items-center gap-3 mb-6 border-b border-border pb-3">
             <TierBadge tier="1" />
@@ -242,33 +323,6 @@ export default function Dreamforce() {
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.why}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* DISW Attendees */}
-        <section>
-          <h2 className="text-2xl font-semibold mb-6 text-foreground border-b border-border pb-2">
-            DISW Registered Attendees
-          </h2>
-          <div className="overflow-x-auto rounded-lg border border-border">
-            <table className="w-full text-sm text-left">
-              <thead className="text-xs text-muted-foreground uppercase bg-card/80 border-b border-border">
-                <tr>
-                  <th className="px-5 py-4">Name</th>
-                  <th className="px-5 py-4">Title</th>
-                  <th className="px-5 py-4">Priority Sessions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border">
-                {attendees.map((a, i) => (
-                  <tr key={i} className="bg-background hover:bg-card/50 transition-colors">
-                    <td className="px-5 py-4 font-semibold text-foreground whitespace-nowrap">{a.name}</td>
-                    <td className="px-5 py-4 text-muted-foreground">{a.title}</td>
-                    <td className="px-5 py-4 text-primary text-xs font-medium">{a.sessions}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </section>
 
