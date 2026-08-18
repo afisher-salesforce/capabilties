@@ -9,4 +9,4 @@ uri = "heroku/procfile"
 
 [[io.buildpacks.build.env]]
 name = "VITE_CLERK_PUBLISHABLE_KEY"
-value = "pk_test_YmVjb21pbmctc3F1aWQtNDA1Ny5jbGVyay5hY2NvdW50cy5kZXYk"
+value = "pk_test_Y29tbXVuYWwtZWFnbGUtODgzOC5jbGVyay5hY2NvdW50cy5kZXYk"
